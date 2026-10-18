@@ -1,0 +1,407 @@
+.shop-page {
+  padding: 60px 0 100px;
+  background: #fbf9f4;
+}
+
+/* ===== HEADING ===== */
+.shop-head {
+  text-align: center;
+  animation: shopUp 0.8s ease both;
+}
+
+@keyframes shopUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.shop-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 0 0 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  color: #6c7a61;
+}
+
+.shop-eyebrow i {
+  display: block;
+  width: 54px;
+  height: 1px;
+  background: #b99a5b;
+}
+
+.shop-head h1 {
+  margin: 0;
+  font: 600 clamp(34px, 5.2vw, 62px) / 1.1 "Playfair Display", serif;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #26382b;
+}
+
+.shop-sub {
+  max-width: 640px;
+  margin: 18px auto 0;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #6f6a60;
+}
+
+/* ===== TABS ===== */
+.shop-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 40px 0 34px;
+}
+
+.shop-tabs span {
+  width: 1px;
+  height: 18px;
+  background: #d8d4c6;
+}
+
+.shop-tabs a {
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #26382b;
+  transition: all 0.3s ease;
+}
+
+.shop-tabs a:hover {
+  color: #b99a5b;
+}
+
+.shop-tabs a.active {
+  background: #26382b;
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(38, 56, 43, 0.28);
+}
+
+/* ===== TOOLBAR ===== */
+.shop-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.shop-shapes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.shop-shapes button {
+  padding: 9px 16px;
+  border: 1px solid #deded3;
+  border-radius: 50px;
+  background: transparent;
+  font-size: 11px;
+  color: #26382b;
+  transition: all 0.25s ease;
+}
+
+.shop-shapes button:hover,
+.shop-shapes button.active {
+  background: #b99a5b;
+  border-color: #b99a5b;
+  color: #fff;
+}
+
+.shop-sort {
+  padding: 10px 14px;
+  border: 1px solid #deded3;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 12px;
+  color: #26382b;
+  outline: 0;
+  cursor: pointer;
+}
+
+/* ===== GRID ===== */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.shop-card {
+  overflow: hidden;
+  border: 1px solid #ece8dc;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 26px rgba(38, 56, 43, 0.06);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: shopUp 0.7s ease both;
+}
+
+.shop-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 46px rgba(38, 56, 43, 0.16);
+}
+
+.shop-photo {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+  background: #eeece4;
+}
+
+.shop-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.shop-card:hover .shop-photo img {
+  transform: scale(1.07);
+}
+
+.shop-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.b-green {
+  background: #e3efe3;
+  color: #2f5a3a;
+}
+
+.b-rose {
+  background: #fbe3e3;
+  color: #b0414a;
+}
+
+.b-gold {
+  background: #c9a85c;
+  color: #fff;
+}
+
+.shop-heart {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: #26382b;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.shop-heart:hover {
+  transform: scale(1.12);
+  color: #d94b67;
+}
+
+/* ===== INFO ===== */
+.shop-info {
+  padding: 20px 20px 22px;
+}
+
+.shop-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.shop-price b {
+  font: 600 26px "Playfair Display", serif;
+  color: #26382b;
+}
+
+.shop-price del {
+  font-size: 13px;
+  color: #a2a094;
+}
+
+.shop-cat {
+  display: block;
+  margin: 8px 0 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8a8a7c;
+}
+
+.shop-info h3 {
+  margin: 0;
+  min-height: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+  text-transform: uppercase;
+  color: #27352a;
+}
+
+.shop-rating {
+  margin: 8px 0 16px;
+  font-size: 13px;
+  color: #6f6a60;
+}
+
+.shop-rating span {
+  color: #c9a85c;
+  letter-spacing: 2px;
+}
+
+.shop-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.shop-add,
+.shop-buy {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.shop-add {
+  border: 1px solid #ddd9cc;
+  background: #f6f3ec;
+  color: #26382b;
+}
+
+.shop-add:hover {
+  border-color: #26382b;
+  background: #fff;
+}
+
+.shop-buy {
+  border: 1px solid #26382b;
+  background: #26382b;
+  color: #fff;
+}
+
+.shop-buy:hover {
+  background: #b99a5b;
+  border-color: #b99a5b;
+}
+
+/* ===== EMPTY ===== */
+.shop-empty {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.shop-empty h3 {
+  font: 500 24px "Playfair Display", serif;
+}
+
+.shop-empty button {
+  padding: 12px 22px;
+  border: 0;
+  background: #26382b;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1050px) {
+  .shop-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 780px) {
+  .shop-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .shop-photo {
+    height: 220px;
+  }
+
+  .shop-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 520px) {
+  .shop-page {
+    padding: 40px 0 70px;
+  }
+
+  .shop-eyebrow {
+    letter-spacing: 0.25em;
+    font-size: 10px;
+  }
+
+  .shop-eyebrow i {
+    width: 26px;
+  }
+
+  .shop-tabs a {
+    padding: 12px 22px;
+    font-size: 14px;
+  }
+
+  .shop-photo {
+    height: 180px;
+  }
+
+  .shop-info {
+    padding: 14px;
+  }
+
+  .shop-price b {
+    font-size: 21px;
+  }
+
+  .shop-info h3 {
+    font-size: 12px;
+  }
+
+  .shop-add,
+  .shop-buy {
+    padding: 11px 6px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shop-head,
+  .shop-card {
+    animation: none;
+  }
+}

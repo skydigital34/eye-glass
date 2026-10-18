@@ -1,0 +1,419 @@
+/* ===== PAGE FIXES FOR STICKY NAVBAR ===== */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+.backdrop {
+  z-index: 2000;
+}
+
+.toast {
+  z-index: 3000;
+}
+
+/* ===== OLIVE LUXURY NAVBAR ===== */
+.olive-luxury-header {
+  width: 100%;
+  min-height: 90px;
+  padding: 15px 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  background: #211b16;
+  border-top: 3px solid #49392c;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.olive-luxury-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #d1b15b;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.olive-logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.olive-logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+}
+
+.olive-logo-text strong {
+  font-family: Georgia, serif;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+.olive-logo-text small {
+  font-size: 9px;
+  letter-spacing: 3px;
+  margin-top: 5px;
+  color: #e8d9b0;
+}
+
+.olive-luxury-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 2.2vw, 38px);
+}
+
+.olive-nav-link {
+  position: relative;
+  padding: 8px 0;
+  border: none;
+  background: transparent;
+  color: #d5d0ca;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.2px;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.olive-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: #d1b15b;
+  transition: width 0.3s ease;
+}
+
+.olive-nav-link:hover,
+.olive-nav-link.active {
+  color: #d1b15b;
+}
+
+.olive-nav-link:hover::after,
+.olive-nav-link.active::after {
+  width: 100%;
+}
+
+.olive-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  flex-shrink: 0;
+}
+
+.olive-search-box {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #f7f2e9;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 0;
+}
+
+.olive-search-box input {
+  width: 75px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  font: inherit;
+  font-size: 12px;
+  transition: width 0.3s ease;
+}
+
+.olive-search-box input:focus {
+  width: 105px;
+}
+
+.olive-search-box input::placeholder {
+  color: #c6bfb5;
+}
+
+.olive-icon-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.olive-icon-button:hover {
+  color: #d1b15b;
+  transform: translateY(-2px);
+}
+
+.olive-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 3px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #d1b15b;
+  color: #211b16;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.wishlist-count {
+  background: #d94b67;
+  color: #fff;
+}
+
+.olive-shop-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 0 24px;
+  border: 1px solid #d1b15b;
+  border-radius: 50px;
+  background: #d1b15b;
+  color: #211b16;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.olive-shop-button:hover {
+  background: transparent;
+  color: #d1b15b;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 22px rgba(209, 177, 91, 0.12);
+}
+
+.olive-shop-button svg {
+  transition: transform 0.3s ease;
+}
+
+.olive-shop-button:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* Desktop vs Mobile Toggle Buttons */
+.olive-mobile-menu-btn,
+.olive-mobile-search-toggle {
+  display: none;
+}
+
+.olive-mobile-search-bar {
+  display: none;
+}
+
+/* Tablet */
+@media (max-width: 1150px) {
+  .olive-luxury-header {
+    gap: 18px;
+    padding-inline: 3%;
+  }
+
+  .olive-luxury-nav {
+    gap: 16px;
+  }
+
+  .olive-nav-link {
+    font-size: 10px;
+    letter-spacing: 1.3px;
+  }
+
+  .olive-nav-actions {
+    gap: 13px;
+  }
+
+  .olive-shop-button {
+    padding: 0 16px;
+    font-size: 10px;
+  }
+}
+
+/* ===== MOBILE APP HEADER (Max 768px) ===== */
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 80px;
+  }
+
+  .olive-luxury-header {
+    min-height: 58px;
+    height: 58px;
+    padding: 0 16px;
+    gap: 12px;
+    flex-wrap: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 1200;
+    background: #1a1511;
+    border-top: none;
+    border-bottom: 1px solid rgba(209, 177, 91, 0.2);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Hamburger Menu Button */
+  .olive-mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: none;
+    background: transparent;
+    color: #e4c987;
+    cursor: pointer;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .olive-mobile-menu-btn:active {
+    transform: scale(0.92);
+  }
+
+  /* Brand in Center */
+  .olive-luxury-brand {
+    gap: 7px;
+    margin: 0 auto;
+    transform: translateX(-4px);
+  }
+
+  .olive-logo-text strong {
+    font-size: 18px;
+    letter-spacing: 1.5px;
+  }
+
+  .olive-logo-text small {
+    font-size: 7.5px;
+    letter-spacing: 2px;
+    margin-top: 2px;
+  }
+
+  .olive-logo-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Hide Desktop Nav & Elements */
+  .olive-luxury-nav {
+    display: none;
+  }
+
+  .olive-desktop-only {
+    display: none !important;
+  }
+
+  .olive-search-box {
+    display: none;
+  }
+
+  /* Mobile Actions */
+  .olive-nav-actions {
+    gap: 8px;
+  }
+
+  .olive-mobile-search-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: transparent;
+    color: #f7f2e9;
+    cursor: pointer;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .olive-icon-button {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+  }
+
+  .olive-icon-button svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  /* Expandable Search Bar on Mobile */
+  .olive-mobile-search-bar {
+    position: absolute;
+    top: 58px;
+    left: 0;
+    right: 0;
+    background: #251e18;
+    border-bottom: 1px solid rgba(209, 177, 91, 0.3);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    animation: searchSlideDown 0.2s ease-out;
+    z-index: 1100;
+  }
+
+  @keyframes searchSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .olive-mobile-search-bar svg {
+    color: #ffd988;
+    flex-shrink: 0;
+  }
+
+  .olive-mobile-search-bar input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    font-size: 13px;
+    outline: none;
+    font-family: inherit;
+  }
+
+  .olive-mobile-search-bar input::placeholder {
+    color: #999388;
+  }
+
+  .search-clear-btn {
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #c9cebe;
+    font-size: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}

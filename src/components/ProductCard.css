@@ -1,0 +1,251 @@
+/* ProductCard Base & Mobile Responsive Styles */
+.shop-card {
+  overflow: hidden;
+  border: 1px solid #ece8dc;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(38, 56, 43, 0.05);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px rgba(38, 56, 43, 0.12);
+  border-color: #b99a5b;
+}
+
+.shop-photo {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  background: #eeece4;
+}
+
+.shop-photo-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.shop-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.shop-card:hover .shop-photo img {
+  transform: scale(1.06);
+}
+
+.shop-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 12px;
+  border-radius: 40px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  z-index: 2;
+}
+
+.b-green {
+  background: #e3efe3;
+  color: #2f5a3a;
+}
+
+.b-rose {
+  background: #fbe3e3;
+  color: #b0414a;
+}
+
+.b-gold {
+  background: #c9a85c;
+  color: #ffffff;
+}
+
+.shop-heart {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #26382b;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.shop-heart:hover {
+  transform: scale(1.1);
+  color: #d94b67;
+}
+
+/* Info Section */
+.shop-info {
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.shop-price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.shop-price b {
+  font: 600 22px "Playfair Display", serif;
+  color: #26382b;
+}
+
+.shop-price del {
+  font-size: 12px;
+  color: #a2a094;
+}
+
+.shop-cat {
+  display: block;
+  margin: 6px 0 4px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8a8a7c;
+}
+
+.shop-info h3 {
+  margin: 0;
+  min-height: 36px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #27352a;
+}
+
+.shop-info h3 a {
+  color: inherit;
+  transition: color 0.25s ease;
+}
+
+.shop-info h3 a:hover {
+  color: #b99a5b;
+}
+
+.shop-rating {
+  margin: 6px 0 14px;
+  font-size: 12px;
+  color: #6f6a60;
+}
+
+.shop-rating span {
+  color: #c9a85c;
+  letter-spacing: 1px;
+}
+
+.shop-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.shop-add,
+.shop-buy {
+  width: 100%;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.shop-add {
+  border: 1px solid #ddd9cc;
+  background: #f6f3ec;
+  color: #26382b;
+}
+
+.shop-add:hover {
+  border-color: #26382b;
+  background: #ffffff;
+}
+
+.shop-buy {
+  border: 1px solid #26382b;
+  background: #26382b;
+  color: #ffffff;
+}
+
+.shop-buy:hover {
+  background: #3a503e;
+}
+
+/* ===== MOBILE RESPONSIVE OPTIMIZATIONS ===== */
+@media (max-width: 600px) {
+  .shop-card {
+    border-radius: 10px;
+  }
+
+  .shop-photo {
+    height: clamp(190px, 48vw, 240px);
+  }
+
+  .shop-badge {
+    top: 8px;
+    left: 8px;
+    padding: 4px 9px;
+    font-size: 9px;
+  }
+
+  .shop-heart {
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .shop-info {
+    padding: 12px 12px 14px;
+  }
+
+  .shop-price b {
+    font-size: 19px;
+  }
+
+  .shop-info h3 {
+    font-size: 12px;
+    min-height: auto;
+    margin-bottom: 4px;
+  }
+
+  .shop-rating {
+    margin: 4px 0 10px;
+    font-size: 11px;
+  }
+
+  .shop-add,
+  .shop-buy {
+    min-height: 38px;
+    padding: 9px;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+}

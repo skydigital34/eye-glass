@@ -1,0 +1,192 @@
+.how-section {
+  padding: 85px 0 75px;
+  background: #f8f6f0;
+}
+
+.how-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 50px;
+}
+
+.how-header h2 {
+  font: 500 clamp(28px, 4vw, 44px) / 1.15 "Playfair Display", serif;
+  color: #26382b;
+  margin: 12px 0;
+}
+
+.how-header h2 em {
+  color: #77876b;
+  font-style: italic;
+}
+
+.how-header p {
+  color: #77796e;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.how-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.how-step-card {
+  background: #ffffff;
+  border: 1px solid #e2ded3;
+  padding: 40px 30px;
+  border-radius: 10px;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.how-step-card:hover {
+  transform: translateY(-5px);
+  border-color: #b99a5b;
+  box-shadow: 0 10px 28px rgba(38, 56, 43, 0.08);
+}
+
+.step-num-badge {
+  font-family: "Playfair Display", serif;
+  font-size: 34px;
+  font-weight: 600;
+  color: #d6ceba;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.step-icon-wrap {
+  width: 54px;
+  height: 54px;
+  background: rgba(38, 56, 43, 0.07);
+  border-radius: 50%;
+  color: #26382b;
+  display: grid;
+  place-items: center;
+  margin-bottom: 22px;
+  transition: all 0.3s ease;
+}
+
+.how-step-card:hover .step-icon-wrap {
+  background: #26382b;
+  color: #ffd988;
+}
+
+.how-step-card h3 {
+  font: 500 22px / 1.3 "Playfair Display", serif;
+  color: #26382b;
+  margin: 0 0 12px;
+}
+
+.how-step-card p {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: #636558;
+}
+
+.how-trust-banner {
+  background: #26382b;
+  color: #f8f6f0;
+  border-radius: 8px;
+  padding: 26px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.how-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+}
+
+.how-trust-item svg {
+  color: #e4c987;
+  flex-shrink: 0;
+}
+
+.how-trust-item strong {
+  display: block;
+  font-size: 13px;
+  color: #ffffff;
+  margin-bottom: 3px;
+}
+
+.how-trust-item small {
+  display: block;
+  font-size: 11px;
+  color: #cfd4cb;
+}
+
+.how-trust-divider {
+  width: 1px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .how-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .how-trust-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 18px;
+  }
+
+  .how-trust-divider {
+    width: 100%;
+    height: 1px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .how-section {
+    padding: 50px 0 45px;
+  }
+
+  .how-header {
+    margin-bottom: 30px;
+  }
+
+  .how-steps-grid {
+    margin-bottom: 35px;
+  }
+
+  .how-step-card {
+    padding: 24px 18px;
+  }
+
+  .step-num-badge {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+
+  .step-icon-wrap {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 16px;
+  }
+
+  .how-step-card h3 {
+    font-size: 19px;
+  }
+
+  .how-trust-banner {
+    padding: 20px 16px;
+    border-radius: 6px;
+  }
+}
