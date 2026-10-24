@@ -5,6 +5,7 @@ import {
   Phone,
   MapPin,
   Send,
+  MessageCircle,
 } from "lucide-react";
 
 export default function Newsletter({ showNotice }) {
@@ -48,7 +49,7 @@ export default function Newsletter({ showNotice }) {
         </h2>
 
         <p>
-          Have a question about our eyewear?
+          Have a question about our eyewear or optical services?
           We'd love to hear from you.
         </p>
       </div>
@@ -57,29 +58,42 @@ export default function Newsletter({ showNotice }) {
 
         {/* Contact Information */}
         <div className="contact-info">
-          <h3>Contact Information</h3>
+          <h3>Store &amp; Clinic Information</h3>
 
           <p>
-            We're here to help you find
-            your perfect pair of glasses.
+            Visit our flagship clinic or reach out directly for frame styling and prescription support.
           </p>
 
           <div className="contact-detail">
-            <Mail size={18} />
+            <Phone size={18} />
             <div>
-              <small>Email</small>
-              <a href="mailto:hello@example.com">
-                hello@example.com
+              <small>Call Us</small>
+              <a href="tel:08838289852">
+                088382 89852
               </a>
             </div>
           </div>
 
           <div className="contact-detail">
-            <Phone size={18} />
+            <MessageCircle size={18} />
             <div>
-              <small>Phone</small>
-              <a href="tel:+910000000000">
-                +91 00000 00000
+              <small>WhatsApp</small>
+              <a
+                href="https://wa.me/918838289852?text=Hi%20Olive%20Eye%20Care,%20I%20would%20like%20to%20know%20more%20about%20your%20services"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                88382 89852
+              </a>
+            </div>
+          </div>
+
+          <div className="contact-detail">
+            <Mail size={18} />
+            <div>
+              <small>Email</small>
+              <a href="mailto:oliveyecare@gmail.com">
+                oliveyecare@gmail.com
               </a>
             </div>
           </div>
@@ -87,8 +101,11 @@ export default function Newsletter({ showNotice }) {
           <div className="contact-detail">
             <MapPin size={18} />
             <div>
-              <small>Our promise</small>
-              <p>Comfort, care and timeless style.</p>
+              <small>Flagship Store Address</small>
+              <p style={{ margin: 0, fontSize: "0.9rem", lineHeight: 1.45 }}>
+                NO 99/100, Dr. Raja Road, Tatabad, Sivananda Colony,
+                Coimbatore, Tamil Nadu - 641012
+              </p>
             </div>
           </div>
         </div>

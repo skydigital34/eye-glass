@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard.jsx";
-import { eyeglasses, sunglasses } from "../data/products.js";
+import { eyeglasses, sunglasses, contactLenses } from "../data/products.js";
 import "./CategoryPage.css";
 
 const PAGES = {
@@ -16,6 +16,18 @@ const PAGES = {
     title: "Our Sunglasses",
     text: "Bold shapes and tinted lenses that protect your eyes. Explore our most loved styles and bring home a pair for every sunny day.",
     items: sunglasses,
+  },
+  "contact-lenses": {
+    label: "Contact Lenses",
+    title: "Our Contact Lenses",
+    text: "Ultra-hydrating daily, monthly, toric & colored lenses with breathable silicone hydrogel for crystal-clear comfort.",
+    items: contactLenses,
+  },
+  contactLenses: {
+    label: "Contact Lenses",
+    title: "Our Contact Lenses",
+    text: "Ultra-hydrating daily, monthly, toric & colored lenses with breathable silicone hydrogel for crystal-clear comfort.",
+    items: contactLenses,
   },
 };
 

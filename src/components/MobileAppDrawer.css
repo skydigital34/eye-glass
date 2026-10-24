@@ -19,7 +19,7 @@
 .mobile-drawer-panel {
   width: min(340px, 86%);
   height: 100%;
-  background: #1e1914;
+  background: linear-gradient(180deg, #253114 0%, #1a220d 100%);
   color: #f8f6f0;
   display: flex;
   flex-direction: column;
@@ -46,7 +46,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #ffd988;
+  color: #ffffff;
 }
 
 .drawer-logo-icon {
@@ -69,7 +69,7 @@
 .drawer-brand small {
   font-size: 8px;
   letter-spacing: 0.2em;
-  color: #e4c987;
+  color: #cde2a8;
   display: block;
   margin-top: 2px;
 }
@@ -88,18 +88,18 @@
 
 /* Promo Ribbon */
 .drawer-promo-ribbon {
-  background: rgba(209, 177, 91, 0.14);
-  border-bottom: 1px solid rgba(209, 177, 91, 0.25);
+  background: rgba(83, 105, 40, 0.28);
+  border-bottom: 1px solid rgba(83, 105, 40, 0.45);
   padding: 10px 20px;
   font-size: 11px;
-  color: #f5e4be;
+  color: #dbe8cb;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
 .drawer-promo-ribbon strong {
-  color: #ffd988;
+  color: #ffffff;
   letter-spacing: 0.05em;
 }
 
@@ -124,7 +124,7 @@
   font-size: 9px;
   letter-spacing: 0.16em;
   font-weight: 700;
-  color: #a49e95;
+  color: #b5c79a;
   margin-bottom: 8px;
   display: block;
 }
@@ -146,7 +146,7 @@
 .drawer-link:hover,
 .drawer-link:active {
   background: rgba(255, 255, 255, 0.07);
-  color: #ffd988;
+  color: #ffffff;
 }
 
 .drawer-link-left {
@@ -156,7 +156,7 @@
 }
 
 .drawer-link-left svg {
-  color: #cbb17b;
+  color: #8fb848;
 }
 
 .drawer-count-pill {
@@ -170,7 +170,7 @@
 .drawer-badge-free {
   font-size: 9px;
   padding: 3px 8px;
-  background: #2a7e4b;
+  background: #536928;
   color: #ffffff;
   font-weight: 700;
   border-radius: 4px;
@@ -180,8 +180,8 @@
 .drawer-rating-tag {
   font-size: 10px;
   padding: 3px 7px;
-  background: rgba(255, 217, 136, 0.15);
-  color: #ffd988;
+  background: rgba(83, 105, 40, 0.35);
+  color: #ffffff;
   font-weight: 700;
   border-radius: 4px;
 }
@@ -199,7 +199,7 @@
   font-size: 9px;
   letter-spacing: 0.15em;
   font-weight: 700;
-  color: #ffd988;
+  color: #ffffff;
   margin-bottom: 12px;
 }
 

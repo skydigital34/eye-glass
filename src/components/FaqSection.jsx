@@ -12,8 +12,8 @@ const FAQS = [
     a: "Absolutely! Many of our customers have 20/20 vision and wear Olive frames exclusively for screen protection. Choose our 'Zero Power BlueShield™' option to block 98% of digital screen blue light and eliminate daily eye strain without altering your vision.",
   },
   {
-    q: "What if the frame doesn't suit my face or fits uncomfortably?",
-    a: "We offer a 100% Risk-Free 14-Day Home Trial. If the frames don't feel just right on your face, simply initiate an exchange or return through our website or WhatsApp support. We will arrange a free reverse pickup from your doorstep and either adjust the frame or issue a full refund.",
+    q: "What is your return and exchange policy?",
+    a: "We follow a strict 'No Returns · Only Exchange' policy. If your frame doesn't fit comfortably or suit your face, you can initiate a hassle-free exchange within 7 days via WhatsApp (88382 89852). Our optometrists will help you select an alternative frame style or lens power that fits you perfectly.",
   },
   {
     q: "How do I know what frame size fits my face?",
@@ -29,7 +29,7 @@ const FAQS = [
   },
   {
     q: "How fast is delivery and what are the shipping charges?",
-    a: "Standard shipping is 100% FREE across India on all prepaid orders. Zero-power frames ship within 24-48 hours. Custom prescription and progressive lenses are precision-surfaced and delivered to your doorstep within 3-5 business days.",
+    a: "FREE Delivery is exclusively available for Tamil Nadu orders! For Tamil Nadu, our express dispatch reaches your doorstep in 1 to 3 Days. For all other places across India, delivery takes 7 to 10 Days via insured express courier.",
   },
 ];
 
@@ -96,12 +96,12 @@ export default function FaqSection() {
             </div>
           </div>
           <a
-            href="https://wa.me/919876543210"
+            href="https://wa.me/918838289852?text=Hi%20Olive%20Eye%20Care,%20I%20have%20a%20question%20about%20eyewear"
             target="_blank"
             rel="noopener noreferrer"
             className="faq-chat-btn"
           >
-            Chat with Optometrist
+            Chat on WhatsApp
           </a>
         </div>
       </div>

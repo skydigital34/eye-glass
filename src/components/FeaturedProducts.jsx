@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Flame, Sparkles } from "lucide-react";
+import { ArrowRight, Flame, Sparkles, Globe } from "lucide-react";
 import ProductCard from "./ProductCard.jsx";
 import { products } from "../data/products.js";
 import "./FeaturedProducts.css";
@@ -10,6 +10,7 @@ const TABS = [
   { id: "bestsellers", label: "Best Sellers", icon: Sparkles },
   { id: "eyeglasses", label: "Everyday Eyeglasses" },
   { id: "sunglasses", label: "Sunwear Collection" },
+  { id: "international-brands", label: "International Brands", icon: Globe },
 ];
 
 export default function FeaturedProducts({
@@ -29,6 +30,11 @@ export default function FeaturedProducts({
     }
     if (activeTab === "sunglasses") {
       return products.filter((p) => p.category === "Sunglasses").slice(0, 8);
+    }
+    if (activeTab === "international-brands") {
+      return products
+        .filter((p) => p.brand || p.tag === "PREMIUM" || p.tag === "LIMITED" || p.price >= 2699)
+        .slice(0, 8);
     }
     // "trending": mix of top trending & new
     return products
@@ -83,10 +89,20 @@ export default function FeaturedProducts({
 
         <div className="featured-footer">
           <Link
-            to={activeTab === "sunglasses" ? "/sunglasses" : "/eyeglasses"}
+            to={
+              activeTab === "international-brands"
+                ? "/#brands"
+                : activeTab === "sunglasses"
+                ? "/sunglasses"
+                : "/eyeglasses"
+            }
             className="featured-view-all"
           >
-            <span>View Complete Collection</span>
+            <span>
+              {activeTab === "international-brands"
+                ? "Explore All 8 International Houses"
+                : "View Complete Collection"}
+            </span>
             <ArrowRight size={16} />
           </Link>
         </div>

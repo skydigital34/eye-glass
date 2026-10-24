@@ -50,7 +50,9 @@ export default function ProductCard({
           <del>{money(product.oldPrice)}</del>
         </div>
 
-        <span className="shop-cat">{product.category}</span>
+        <span className="shop-cat">
+          {product.brand ? `${product.brand} · ${product.category}` : product.category}
+        </span>
 
         <h3>
           <Link to={link}>

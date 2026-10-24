@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
-  Eye,
   Search,
   ShoppingBag,
-  Heart,
-  ArrowUpRight,
+  User,
+  ChevronDown,
   Menu,
   X,
+  Truck,
 } from "lucide-react";
 import MobileAppDrawer from "./MobileAppDrawer.jsx";
+import BrandLogo from "./BrandLogo.jsx";
 import "./Navbar.css";
 
 export default function Navbar({
@@ -27,8 +28,9 @@ export default function Navbar({
   const [activeSection, setActiveSection] = useState("home");
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
+  const [searchExpanded, setSearchExpanded] = useState(false);
 
-  // Scroll spy (home page la mattum)
+  // Scroll spy (home page only)
   useEffect(() => {
     if (!isHome) return;
 
@@ -51,10 +53,31 @@ export default function Navbar({
     return () => observer.disconnect();
   }, [isHome]);
 
-  const cls = (active) => `olive-nav-link ${active ? "active" : ""}`;
-
   return (
     <>
+      {/* Top Highlighted Delivery Announcement Banner */}
+      <div className="olive-top-delivery-bar" role="region" aria-label="Delivery Information">
+        <div className="top-delivery-wrap">
+          <div className="delivery-free-highlight-pill">
+            <Truck size={14} className="truck-pulse-icon" />
+            <span className="free-badge-text">FREE DELIVERY AVAILABLE IN TAMIL NADU</span>
+          </div>
+
+          <div className="delivery-times-group">
+            <span className="delivery-time-item tn-item">
+              <span className="live-dot-pulse" />
+              <span>Tamil Nadu Delivery Time: <strong>1 to 3 Days</strong></span>
+            </span>
+
+            <span className="delivery-sep-dot" aria-hidden="true">•</span>
+
+            <span className="delivery-time-item india-item">
+              <span>All other places in India: <strong>7 to 10 Days</strong></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
       <header className="olive-luxury-header">
         {/* Mobile Hamburger Button */}
         <button
@@ -66,62 +89,79 @@ export default function Navbar({
           <Menu size={24} />
         </button>
 
-        {/* Brand Logo */}
-        <Link className="olive-luxury-brand" to="/">
-          <span className="olive-logo-icon">
-            <Eye size={28} strokeWidth={1.5} />
-          </span>
-
-          <span className="olive-logo-text">
-            <strong>OLIVE</strong>
-            <small>EYE CARE</small>
-          </span>
+        {/* Brand Logo - Dark theme on crisp white header */}
+        <Link className="olive-luxury-brand" to="/" aria-label="Olive Eye Care Home">
+          <BrandLogo theme="dark" size={1.05} />
         </Link>
 
-        {/* Desktop Navigation Links */}
+        {/* Desktop Navigation Links matching Mockup */}
         <nav className="olive-luxury-nav">
-          <Link to="/" className={cls(isHome && activeSection === "home")}>
-            HOME
+          <Link
+            to="/"
+            className={`olive-nav-link ${isHome && activeSection === "home" ? "active" : ""}`}
+          >
+            Home
           </Link>
 
-          <Link to="/eyeglasses" className={cls(pathname === "/eyeglasses")}>
-            EYEGLASSES
+          {/* Eyewear Dropdown */}
+          <div className="nav-dropdown-item">
+            <button type="button" className="olive-nav-link dropdown-trigger">
+              <span>Eyewear</span>
+              <ChevronDown size={14} className="dropdown-chevron" />
+            </button>
+            <div className="nav-dropdown-menu">
+              <Link to="/eyeglasses">Eyeglasses</Link>
+              <Link to="/sunglasses">Sunglasses</Link>
+              <Link to="/contact-lenses">Contact Lenses</Link>
+              <a href="/#brands">Our Brands</a>
+            </div>
+          </div>
+
+          {/* Eye Care Dropdown */}
+          <div className="nav-dropdown-item">
+            <button type="button" className="olive-nav-link dropdown-trigger">
+              <span>Eye Care</span>
+              <ChevronDown size={14} className="dropdown-chevron" />
+            </button>
+            <div className="nav-dropdown-menu">
+              <a href="/#brands">Our Brands</a>
+              <a href="/#face-shape-guide">Face Shape Guide</a>
+              <a href="/#book-test">Book Eye Exam</a>
+            </div>
+          </div>
+
+          <Link
+            to="/about"
+            className={`olive-nav-link ${pathname === "/about" ? "active" : ""}`}
+          >
+            About Us
           </Link>
 
-          <Link to="/sunglasses" className={cls(pathname === "/sunglasses")}>
-            SUNGLASSES
-          </Link>
-
-          <a href="/#face-shape-guide" className="olive-nav-link">
-            FACE GUIDE
+          <a href="#contact" className="olive-nav-link">
+            Contact
           </a>
-
-          <a href="/#lens-guide" className="olive-nav-link">
-            LENSES
-          </a>
-
-          <a href="/#book-test" className="olive-nav-link">
-            BOOK EXAM
-          </a>
-
-          <Link to="/about" className={cls(pathname === "/about")}>
-            ABOUT
-          </Link>
         </nav>
 
         {/* Desktop & Mobile Actions */}
         <div className="olive-nav-actions">
-          {/* Desktop Search */}
-          <label className="olive-search-box">
-            <Search size={18} />
+          {/* Desktop Expandable Search */}
+          <div className={`olive-search-box ${searchExpanded ? "expanded" : ""}`}>
+            <button
+              type="button"
+              className="search-icon-btn"
+              onClick={() => setSearchExpanded(!searchExpanded)}
+              aria-label="Search"
+            >
+              <Search size={20} strokeWidth={1.8} />
+            </button>
             <input
               aria-label="Search frames"
-              placeholder="Search frames..."
+              placeholder="Search..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && onSearch()}
             />
-          </label>
+          </div>
 
           {/* Mobile Search Toggle Button */}
           <button
@@ -133,36 +173,25 @@ export default function Navbar({
             {mobileSearchOpen ? <X size={21} /> : <Search size={21} />}
           </button>
 
-          {/* Wishlist Button */}
+          {/* User Account Button */}
           <button
             type="button"
             className="olive-icon-button olive-desktop-only"
-            aria-label="Wishlist"
-            onClick={() => alert(`${wishlistCount} item(s) in wishlist`)}
+            aria-label="Account"
+            onClick={() => alert("Welcome to Olive Eye Care!")}
           >
-            <Heart size={24} strokeWidth={1.8} />
-            <span className="olive-count wishlist-count">{wishlistCount}</span>
+            <User size={22} strokeWidth={1.8} />
           </button>
 
-          {/* Cart Bag Button */}
+          {/* Cart Bag Button with Dark Olive Pill Badge */}
           <button
             type="button"
             className="olive-icon-button"
             aria-label="Shopping bag"
             onClick={onCart}
           >
-            <ShoppingBag size={24} strokeWidth={1.8} />
+            <ShoppingBag size={22} strokeWidth={1.8} />
             <span className="olive-count">{cartCount}</span>
-          </button>
-
-          {/* Desktop Shop Button */}
-          <button
-            type="button"
-            className="olive-shop-button olive-desktop-only"
-            onClick={onShop}
-          >
-            SHOP NOW
-            <ArrowUpRight size={16} />
           </button>
         </div>
 

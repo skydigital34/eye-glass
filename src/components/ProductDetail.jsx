@@ -12,6 +12,7 @@ import {
   User,
   Calendar,
   Sparkles,
+  Truck,
 } from "lucide-react";
 import ProductCard from "./ProductCard.jsx";
 import { products, money } from "../data/products.js";
@@ -227,6 +228,26 @@ function Detail({ product, wishlist, onWishlist, onAdd, onBuy, showNotice }) {
             <p className="pd-stock">
               <i /> AVAILABILITY: IN STOCK
             </p>
+
+            {/* Special Tamil Nadu Delivery Highlight Card */}
+            <div className="pd-delivery-info-card">
+              <div className="pd-del-badge">
+                <Truck size={14} />
+                <span>FREE DELIVERY AVAILABLE IN TAMIL NADU</span>
+              </div>
+              <div className="pd-del-timings">
+                <div className="pd-del-row tn-highlight">
+                  <span className="pd-del-dot green" />
+                  <span>Tamil Nadu Delivery Time:</span>
+                  <strong>1 to 3 Days</strong>
+                </div>
+                <div className="pd-del-row india-row">
+                  <span className="pd-del-dot grey" />
+                  <span>All other places in India:</span>
+                  <strong>7 to 10 Days</strong>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

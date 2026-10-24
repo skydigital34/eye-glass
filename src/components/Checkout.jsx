@@ -9,6 +9,7 @@ import {
   CheckCircle2,
   Timer,
   ChevronRight,
+  Truck,
 } from "lucide-react";
 import { money } from "../data/products.js";
 import "./Checkout.css";
@@ -202,6 +203,18 @@ export default function Checkout({ items, onClose, onDone }) {
           <h2>
             Delivery <em>Details</em>
           </h2>
+
+          {/* Highlighted Delivery Information Alert */}
+          <div className="co-delivery-alert-box">
+            <div className="co-del-badge">
+              <Truck size={14} />
+              <span>FREE DELIVERY AVAILABLE IN TAMIL NADU</span>
+            </div>
+            <div className="co-del-timings">
+              <span>⚡ Tamil Nadu Delivery Time: <strong>1 to 3 Days</strong></span>
+              <span>📦 All other places in India: <strong>7 to 10 Days</strong></span>
+            </div>
+          </div>
 
           <label className="co-field">
             <span>FULL NAME</span>

@@ -13,12 +13,12 @@
 
 .insta-head h2 {
   font: 500 clamp(28px, 4vw, 44px) / 1.15 "Playfair Display", serif;
-  color: #26382b;
+  color: #242d14;
   margin: 12px 0;
 }
 
 .insta-head h2 em {
-  color: #77876b;
+  color: #536928;
   font-style: italic;
 }
 
@@ -35,7 +35,7 @@
   gap: 8px;
   background: #f8f6f0;
   border: 1px solid #deded3;
-  color: #26382b;
+  color: #242d14;
   padding: 11px 18px;
   font-size: 11px;
   font-weight: 700;
@@ -44,9 +44,9 @@
 }
 
 .insta-follow-btn:hover {
-  background: #26382b;
+  background: #536928;
   color: #ffffff;
-  border-color: #26382b;
+  border-color: #536928;
   box-shadow: 0 4px 14px rgba(38, 56, 43, 0.15);
 }
 
@@ -81,8 +81,8 @@
   inset: 0;
   background: linear-gradient(
     0deg,
-    rgba(23, 34, 25, 0.9) 0%,
-    rgba(23, 34, 25, 0.4) 45%,
+    rgba(32, 42, 16, 0.9) 0%,
+    rgba(32, 42, 16, 0.4) 45%,
     transparent 80%
   );
   padding: 18px;
@@ -101,7 +101,7 @@
 .insta-user {
   font-size: 10px;
   letter-spacing: 0.05em;
-  color: #ffd988;
+  color: #ffffff;
   margin-bottom: 4px;
 }
 
@@ -130,8 +130,8 @@
 }
 
 .insta-card:hover .insta-cta {
-  background: #ffd988;
-  color: #1e2c21;
+  background: #536928;
+  color: #ffffff;
 }
 
 /* Tablet */
@@ -172,8 +172,8 @@
     padding: 12px;
     background: linear-gradient(
       0deg,
-      rgba(23, 34, 25, 0.88) 0%,
-      rgba(23, 34, 25, 0.45) 50%,
+      rgba(32, 42, 16, 0.88) 0%,
+      rgba(32, 42, 16, 0.45) 50%,
       transparent 85%
     );
   }
@@ -186,8 +186,8 @@
   .insta-cta {
     font-size: 9px;
     padding: 4px 8px;
-    background: #ffd988;
-    color: #1e2c21;
+    background: #536928;
+    color: #ffffff;
   }
 }
 

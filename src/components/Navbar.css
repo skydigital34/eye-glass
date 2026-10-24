@@ -1,7 +1,7 @@
 /* ===== PAGE FIXES FOR STICKY NAVBAR ===== */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 90px;
 }
 
 .backdrop {
@@ -12,63 +12,157 @@ html {
   z-index: 3000;
 }
 
-/* ===== OLIVE LUXURY NAVBAR ===== */
+/* ============================================================
+   TOP DELIVERY HIGHLIGHT ANNOUNCEMENT BAR
+============================================================ */
+.olive-top-delivery-bar {
+  background: linear-gradient(90deg, #1b260e 0%, #384c1f 50%, #233112 100%);
+  color: #ffffff;
+  border-bottom: 1px solid rgba(214, 236, 170, 0.3);
+  position: relative;
+  z-index: 1001;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.top-delivery-wrap {
+  width: min(1280px, 94%);
+  margin: 0 auto;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.delivery-free-highlight-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #dcfce7;
+  color: #14532d;
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12), 0 0 0 1px #86efac;
+  animation: freeBadgeGlow 2.5s infinite ease-in-out;
+}
+
+@keyframes freeBadgeGlow {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12), 0 0 0 1px #86efac;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 4px 14px rgba(34, 197, 94, 0.45), 0 0 0 2px #4ade80;
+    transform: scale(1.02);
+  }
+}
+
+.truck-pulse-icon {
+  color: #166534;
+  animation: truckBounce 2s infinite ease-in-out;
+}
+
+@keyframes truckBounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(2px); }
+}
+
+.delivery-times-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11.5px;
+  color: #f1f5e9;
+  letter-spacing: 0.02em;
+}
+
+.delivery-time-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.delivery-time-item strong {
+  color: #fef08a;
+  font-weight: 700;
+}
+
+.live-dot-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px #4ade80;
+  animation: liveDotPulse 1.8s infinite;
+}
+
+@keyframes liveDotPulse {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+.delivery-sep-dot {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+  .top-delivery-wrap {
+    flex-direction: column;
+    padding: 7px 10px;
+    gap: 6px;
+    text-align: center;
+  }
+  .delivery-free-highlight-pill {
+    font-size: 10px;
+    padding: 3px 10px;
+  }
+  .delivery-times-group {
+    font-size: 10.5px;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .delivery-sep-dot {
+    display: none;
+  }
+}
+
+/* ===== OLIVE CLEAN LUXURY NAVBAR ===== */
 .olive-luxury-header {
   width: 100%;
-  min-height: 90px;
-  padding: 15px 4%;
+  min-height: 64px;
+  padding: 10px 4%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 28px;
-  background: #211b16;
-  border-top: 3px solid #49392c;
+  background: #fdfcf9;
+  border-bottom: 1px solid rgba(60, 80, 30, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
   box-sizing: border-box;
+  box-shadow: 0 2px 14px rgba(45, 60, 24, 0.04);
 }
 
 .olive-luxury-brand {
   display: flex;
   align-items: center;
   gap: 9px;
-  color: #d1b15b;
   text-decoration: none;
   flex-shrink: 0;
 }
 
-.olive-logo-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.olive-logo-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 1.1;
-}
-
-.olive-logo-text strong {
-  font-family: Georgia, serif;
-  font-size: 25px;
-  letter-spacing: 2px;
-}
-
-.olive-logo-text small {
-  font-size: 9px;
-  letter-spacing: 3px;
-  margin-top: 5px;
-  color: #e8d9b0;
-}
-
+/* Desktop Navigation */
 .olive-luxury-nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(16px, 2.2vw, 38px);
+  gap: clamp(18px, 2.6vw, 38px);
 }
 
 .olive-nav-link {
@@ -76,71 +170,141 @@ html {
   padding: 8px 0;
   border: none;
   background: transparent;
-  color: #d5d0ca;
+  color: #2b3917;
   font-family: inherit;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2.2px;
+  font-size: 14.5px;
+  font-weight: 500;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.25s ease;
 }
 
-.olive-nav-link::after {
+.olive-nav-link:hover {
+  color: #384c1f;
+}
+
+.olive-nav-link.active {
+  color: #384c1f;
+  font-weight: 600;
+}
+
+.olive-nav-link.active::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: 0;
-  width: 0;
-  height: 1px;
-  background: #d1b15b;
-  transition: width 0.3s ease;
-}
-
-.olive-nav-link:hover,
-.olive-nav-link.active {
-  color: #d1b15b;
-}
-
-.olive-nav-link:hover::after,
-.olive-nav-link.active::after {
+  bottom: -2px;
   width: 100%;
+  height: 2.2px;
+  background: #384c1f;
+  border-radius: 2px;
 }
 
+/* Dropdown */
+.nav-dropdown-item {
+  position: relative;
+}
+
+.dropdown-trigger {
+  padding-right: 2px;
+}
+
+.dropdown-chevron {
+  opacity: 0.7;
+  transition: transform 0.25s ease;
+}
+
+.nav-dropdown-item:hover .dropdown-chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: -8px;
+  min-width: 175px;
+  background: #ffffff;
+  border: 1px solid #e8e5dc;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.09);
+  padding: 8px 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 100;
+}
+
+.nav-dropdown-item:hover .nav-dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 9px 18px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #2b3917;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-dropdown-menu a:hover {
+  background: #edf3e7;
+  color: #384c1f;
+}
+
+/* Actions */
 .olive-nav-actions {
   display: flex;
   align-items: center;
-  gap: 23px;
+  gap: 18px;
   flex-shrink: 0;
 }
 
+/* Search Box */
 .olive-search-box {
   display: flex;
   align-items: center;
-  gap: 7px;
-  color: #f7f2e9;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 6px 0;
+  gap: 6px;
+  color: #2b3917;
+  position: relative;
+}
+
+.search-icon-btn {
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 0;
+  color: #2b3917;
+  cursor: pointer;
+  padding: 4px;
 }
 
 .olive-search-box input {
-  width: 75px;
+  width: 0;
+  opacity: 0;
   border: none;
+  border-bottom: 1.5px solid #384c1f;
   outline: none;
   background: transparent;
-  color: white;
+  color: #2b3917;
   font: inherit;
-  font-size: 12px;
-  transition: width 0.3s ease;
+  font-size: 13px;
+  padding: 4px 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
 }
 
+.olive-search-box.expanded input,
 .olive-search-box input:focus {
-  width: 105px;
-}
-
-.olive-search-box input::placeholder {
-  color: #c6bfb5;
+  width: 120px;
+  opacity: 1;
 }
 
 .olive-icon-button {
@@ -151,19 +315,19 @@ html {
   padding: 5px;
   border: none;
   background: transparent;
-  color: #fff;
+  color: #2b3917;
   cursor: pointer;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .olive-icon-button:hover {
-  color: #d1b15b;
+  color: #384c1f;
   transform: translateY(-2px);
 }
 
 .olive-count {
   position: absolute;
-  top: -5px;
+  top: -3px;
   right: -5px;
   min-width: 17px;
   height: 17px;
@@ -172,53 +336,13 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #d1b15b;
-  color: #211b16;
+  background: #384c1f;
+  color: #ffffff;
   font-size: 10px;
   font-weight: 700;
+  line-height: 1;
 }
 
-.wishlist-count {
-  background: #d94b67;
-  color: #fff;
-}
-
-.olive-shop-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  min-height: 46px;
-  padding: 0 24px;
-  border: 1px solid #d1b15b;
-  border-radius: 50px;
-  background: #d1b15b;
-  color: #211b16;
-  font-family: inherit;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.olive-shop-button:hover {
-  background: transparent;
-  color: #d1b15b;
-  transform: translateY(-2px);
-  box-shadow: 0 7px 22px rgba(209, 177, 91, 0.12);
-}
-
-.olive-shop-button svg {
-  transition: transform 0.3s ease;
-}
-
-.olive-shop-button:hover svg {
-  transform: translate(2px, -2px);
-}
-
-/* Desktop vs Mobile Toggle Buttons */
 .olive-mobile-menu-btn,
 .olive-mobile-search-toggle {
   display: none;
@@ -229,9 +353,9 @@ html {
 }
 
 /* Tablet */
-@media (max-width: 1150px) {
+@media (max-width: 950px) {
   .olive-luxury-header {
-    gap: 18px;
+    gap: 16px;
     padding-inline: 3%;
   }
 
@@ -240,42 +364,20 @@ html {
   }
 
   .olive-nav-link {
-    font-size: 10px;
-    letter-spacing: 1.3px;
-  }
-
-  .olive-nav-actions {
-    gap: 13px;
-  }
-
-  .olive-shop-button {
-    padding: 0 16px;
-    font-size: 10px;
+    font-size: 13px;
   }
 }
 
-/* ===== MOBILE APP HEADER (Max 768px) ===== */
+/* Mobile */
 @media (max-width: 768px) {
-  html {
-    scroll-padding-top: 80px;
-  }
-
   .olive-luxury-header {
     min-height: 58px;
     height: 58px;
     padding: 0 16px;
-    gap: 12px;
-    flex-wrap: nowrap;
-    position: sticky;
-    top: 0;
-    z-index: 1200;
-    background: #1a1511;
-    border-top: none;
-    border-bottom: 1px solid rgba(209, 177, 91, 0.2);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+    background: #ffffff;
+    border-bottom: 1px solid #e8e5dc;
   }
 
-  /* Hamburger Menu Button */
   .olive-mobile-menu-btn {
     display: flex;
     align-items: center;
@@ -284,40 +386,16 @@ html {
     height: 38px;
     border: none;
     background: transparent;
-    color: #e4c987;
+    color: #2b3917;
     cursor: pointer;
     padding: 0;
-    -webkit-tap-highlight-color: transparent;
   }
 
-  .olive-mobile-menu-btn:active {
-    transform: scale(0.92);
-  }
-
-  /* Brand in Center */
   .olive-luxury-brand {
-    gap: 7px;
     margin: 0 auto;
     transform: translateX(-4px);
   }
 
-  .olive-logo-text strong {
-    font-size: 18px;
-    letter-spacing: 1.5px;
-  }
-
-  .olive-logo-text small {
-    font-size: 7.5px;
-    letter-spacing: 2px;
-    margin-top: 2px;
-  }
-
-  .olive-logo-icon svg {
-    width: 22px;
-    height: 22px;
-  }
-
-  /* Hide Desktop Nav & Elements */
   .olive-luxury-nav {
     display: none;
   }
@@ -330,11 +408,6 @@ html {
     display: none;
   }
 
-  /* Mobile Actions */
-  .olive-nav-actions {
-    gap: 8px;
-  }
-
   .olive-mobile-search-toggle {
     display: flex;
     align-items: center;
@@ -343,74 +416,38 @@ html {
     height: 36px;
     border: none;
     background: transparent;
-    color: #f7f2e9;
+    color: #2b3917;
     cursor: pointer;
-    padding: 0;
-    -webkit-tap-highlight-color: transparent;
   }
 
-  .olive-icon-button {
-    width: 36px;
-    height: 36px;
-    padding: 0;
-  }
-
-  .olive-icon-button svg {
-    width: 21px;
-    height: 21px;
-  }
-
-  /* Expandable Search Bar on Mobile */
   .olive-mobile-search-bar {
     position: absolute;
     top: 58px;
     left: 0;
     right: 0;
-    background: #251e18;
-    border-bottom: 1px solid rgba(209, 177, 91, 0.3);
+    background: #ffffff;
+    border-bottom: 1px solid #e8e5dc;
     padding: 10px 16px;
     display: flex;
     align-items: center;
     gap: 10px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-    animation: searchSlideDown 0.2s ease-out;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     z-index: 1100;
-  }
-
-  @keyframes searchSlideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-8px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .olive-mobile-search-bar svg {
-    color: #ffd988;
-    flex-shrink: 0;
   }
 
   .olive-mobile-search-bar input {
     flex: 1;
     border: none;
     background: transparent;
-    color: #ffffff;
+    color: #2b3917;
     font-size: 13px;
     outline: none;
-    font-family: inherit;
-  }
-
-  .olive-mobile-search-bar input::placeholder {
-    color: #999388;
   }
 
   .search-clear-btn {
     border: none;
-    background: rgba(255, 255, 255, 0.1);
-    color: #c9cebe;
+    background: rgba(0, 0, 0, 0.08);
+    color: #4b5837;
     font-size: 10px;
     padding: 4px 8px;
     border-radius: 4px;

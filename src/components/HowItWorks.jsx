@@ -1,88 +1,91 @@
 import React from "react";
-import { Glasses, FileText, PackageCheck, Award, HeartHandshake, RefreshCw } from "lucide-react";
 import "./HowItWorks.css";
 
-const STEPS = [
-  {
-    step: "01",
-    icon: Glasses,
-    title: "Discover Your Frame",
-    desc: "Browse our curated collection of Italian-grade acetate and lightweight titanium frames. Use our Face Shape Guide to find your signature fit.",
-  },
-  {
-    step: "02",
-    icon: FileText,
-    title: "Customize Your Lenses",
-    desc: "Choose single vision, bifocal, progressive, or zero-power computer blue-blockers. Snap a photo of your doctor's slip or enter values manually.",
-  },
-  {
-    step: "03",
-    icon: PackageCheck,
-    title: "Delivered to Doorstep",
-    desc: "Hand-assembled and laser-checked by certified opticians. Arrives in 3-5 days with a luxury protective case and 14-day risk-free home trial.",
-  },
-];
+export default function HowItWorks({ onBookAppointment }) {
+  const handleHomeTestClick = (e) => {
+    e.preventDefault();
+    if (onBookAppointment) {
+      onBookAppointment("home");
+    }
+  };
 
-export default function HowItWorks() {
+  const handleStylishFramesClick = (e) => {
+    e.preventDefault();
+    if (onBookAppointment) {
+      onBookAppointment("clinic");
+    }
+  };
+
   return (
-    <section className="how-section" id="how-it-works">
+    <section className="services-showcase-section" id="services">
+      {/* Anchor shim for backwards-compatibility */}
+      <span id="how-it-works" className="anchor-shim" />
+
+      {/* Decorative Corner Leaves matching mockup 1:1 */}
+      <img
+        src="/services_leaf_tl.png"
+        alt=""
+        className="services-leaf-tl"
+        aria-hidden="true"
+      />
+      <img
+        src="/services_leaf_br.png"
+        alt=""
+        className="services-leaf-br"
+        aria-hidden="true"
+      />
+
       <div className="wrap">
-        <div className="how-header">
-          <span className="eyebrow">SIMPLE &amp; TRANSPARENT</span>
-          <h2>
-            Effortless Eyewear · <em>In 3 Easy Steps</em>
+        {/* Section Header matching mockup 1:1 */}
+        <div className="services-header">
+          <div className="services-eyebrow-container">
+            <span className="services-eyebrow-line" />
+            <span className="services-eyebrow-text">
+              CONVENIENT &amp; COMPREHENSIVE
+            </span>
+            <span className="services-eyebrow-line" />
+          </div>
+
+          <h2 className="services-title">
+            Home Eye Test <span className="services-amp">&amp;</span> Eyeglasses Services
           </h2>
-          <p>
-            No clinic queues, no overpriced markups. Just premium optical precision
-            delivered directly to your home.
+
+          <p className="services-subtitle">
+            Better vision. Greater comfort. All in one place.
           </p>
         </div>
 
-        <div className="how-steps-grid">
-          {STEPS.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div key={idx} className="how-step-card">
-                <div className="step-num-badge">{item.step}</div>
-                <div className="step-icon-wrap">
-                  <Icon size={26} />
-                </div>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-                {idx < STEPS.length - 1 && <div className="step-connector" />}
-              </div>
-            );
-          })}
-        </div>
+        {/* 2 Showcase Cards Grid matching mockup 1:1 */}
+        <div className="services-grid">
+          {/* Card 1: Professional Eye Test at Your Home */}
+          <a
+            href="#book-test"
+            className="service-card"
+            onClick={handleHomeTestClick}
+            aria-label="Book Professional Eye Test at Your Home"
+          >
+            <img
+              src="/service_card_hometest.png"
+              alt="Professional Eye Test at Your Home - Comprehensive eye examination from the comfort of your home"
+              className="service-card-img"
+            />
+            <span className="service-card-border" />
+          </a>
 
-        <div className="how-trust-banner">
-          <div className="how-trust-item">
-            <Award size={18} />
-            <div>
-              <strong>100% Prescription Accuracy</strong>
-              <small>Dual optical verification before dispatch</small>
-            </div>
-          </div>
-
-          <div className="how-trust-divider" />
-
-          <div className="how-trust-item">
-            <HeartHandshake size={18} />
-            <div>
-              <strong>1-Year Warranty Included</strong>
-              <small>Covers coating peel &amp; structural defects</small>
-            </div>
-          </div>
-
-          <div className="how-trust-divider" />
-
-          <div className="how-trust-item">
-            <RefreshCw size={18} />
-            <div>
-              <strong>14-Day Free Exchange</strong>
-              <small>Didn't love the fit? We swap it free of charge</small>
-            </div>
-          </div>
+          {/* Card 2: Stylish Frames for Better Vision */}
+          <a
+            href="#book-test"
+            className="service-card"
+            onClick={handleStylishFramesClick}
+            aria-label="Book Stylish Frames consultation and Eyeglasses Services"
+          >
+            <img
+              src="/service_card_eyeglasses.png"
+              alt="Eyeglasses Services - Stylish Frames for Better Vision"
+              className="service-card-img"
+            />
+            <span className="service-card-border" />
+          </a>
         </div>
       </div>
     </section>

@@ -29,14 +29,14 @@
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.4em;
-  color: #6c7a61;
+  color: #536928;
 }
 
 .shop-eyebrow i {
   display: block;
   width: 54px;
   height: 1px;
-  background: #b99a5b;
+  background: #536928;
 }
 
 .shop-head h1 {
@@ -44,7 +44,7 @@
   font: 600 clamp(34px, 5.2vw, 62px) / 1.1 "Playfair Display", serif;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #26382b;
+  color: #242d14;
 }
 
 .shop-sub {
@@ -75,16 +75,16 @@
   border-radius: 50px;
   font-size: 15px;
   font-weight: 600;
-  color: #26382b;
+  color: #242d14;
   transition: all 0.3s ease;
 }
 
 .shop-tabs a:hover {
-  color: #b99a5b;
+  color: #536928;
 }
 
 .shop-tabs a.active {
-  background: #26382b;
+  background: #536928;
   color: #fff;
   box-shadow: 0 10px 24px rgba(38, 56, 43, 0.28);
 }
@@ -110,14 +110,14 @@
   border-radius: 50px;
   background: transparent;
   font-size: 11px;
-  color: #26382b;
+  color: #242d14;
   transition: all 0.25s ease;
 }
 
 .shop-shapes button:hover,
 .shop-shapes button.active {
-  background: #b99a5b;
-  border-color: #b99a5b;
+  background: #536928;
+  border-color: #536928;
   color: #fff;
 }
 
@@ -127,7 +127,7 @@
   border-radius: 8px;
   background: #fff;
   font-size: 12px;
-  color: #26382b;
+  color: #242d14;
   outline: 0;
   cursor: pointer;
 }
@@ -158,7 +158,7 @@
   position: relative;
   height: 280px;
   overflow: hidden;
-  background: #eeece4;
+  background: #f3f1ea;
 }
 
 .shop-photo img {
@@ -183,8 +183,8 @@
 }
 
 .b-green {
-  background: #e3efe3;
-  color: #2f5a3a;
+  background: #edf3e4;
+  color: #37461a;
 }
 
 .b-rose {
@@ -208,7 +208,7 @@
   border: 0;
   border-radius: 50%;
   background: #fff;
-  color: #26382b;
+  color: #242d14;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
   cursor: pointer;
   transition: transform 0.3s ease, color 0.3s ease;
@@ -232,7 +232,7 @@
 
 .shop-price b {
   font: 600 26px "Playfair Display", serif;
-  color: #26382b;
+  color: #242d14;
 }
 
 .shop-price del {
@@ -257,7 +257,7 @@
   font-weight: 500;
   line-height: 1.45;
   text-transform: uppercase;
-  color: #27352a;
+  color: #242d14;
 }
 
 .shop-rating {
@@ -296,23 +296,23 @@
 .shop-add {
   border: 1px solid #ddd9cc;
   background: #f6f3ec;
-  color: #26382b;
+  color: #242d14;
 }
 
 .shop-add:hover {
-  border-color: #26382b;
+  border-color: #536928;
   background: #fff;
 }
 
 .shop-buy {
-  border: 1px solid #26382b;
-  background: #26382b;
+  border: 1px solid #536928;
+  background: #536928;
   color: #fff;
 }
 
 .shop-buy:hover {
-  background: #b99a5b;
-  border-color: #b99a5b;
+  background: #536928;
+  border-color: #536928;
 }
 
 /* ===== EMPTY ===== */
@@ -328,7 +328,7 @@
 .shop-empty button {
   padding: 12px 22px;
   border: 0;
-  background: #26382b;
+  background: #536928;
   color: #fff;
   cursor: pointer;
 }

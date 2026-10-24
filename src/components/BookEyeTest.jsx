@@ -1,18 +1,60 @@
-import React, { useState } from "react";
-import { Calendar, Clock, MapPin, User, Phone, CheckCircle, Stethoscope, Home as HomeIcon } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import {
+  Calendar,
+  Clock,
+  MapPin,
+  User,
+  Phone,
+  CheckCircle,
+  Stethoscope,
+  Home as HomeIcon,
+  MessageCircle,
+  X,
+} from "lucide-react";
 import "./BookEyeTest.css";
 
-export default function BookEyeTest({ showNotice }) {
-  const [service, setService] = useState("clinic"); // 'clinic' | 'home'
+export default function BookEyeTest({
+  open,
+  initialService = "home",
+  onClose,
+  showNotice,
+}) {
+  const [service, setService] = useState(initialService || "home"); // 'clinic' | 'home'
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    city: "Chennai",
+    city: "Coimbatore (Flagship Clinic: Dr. Raja Road, Tatabad)",
     date: "",
     timeSlot: "Morning (10:00 AM - 1:00 PM)",
   });
   const [submitted, setSubmitted] = useState(false);
   const [bookingId, setBookingId] = useState("");
+
+  // Sync service when initialService prop changes
+  useEffect(() => {
+    if (open && initialService) {
+      setService(initialService);
+    }
+  }, [open, initialService]);
+
+  // Lock background scroll and handle Escape key when modal is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+      const handleKeyDown = (e) => {
+        if (e.key === "Escape") {
+          onClose?.();
+        }
+      };
+      window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.body.style.overflow = "";
+        window.removeEventListener("keydown", handleKeyDown);
+      };
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [open, onClose]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,16 +76,40 @@ export default function BookEyeTest({ showNotice }) {
     setFormData({
       name: "",
       phone: "",
-      city: "Chennai",
+      city: "Coimbatore (Flagship Clinic: Dr. Raja Road, Tatabad)",
       date: "",
       timeSlot: "Morning (10:00 AM - 1:00 PM)",
     });
   };
 
+  // If not open, don't show on page (veliya show aaga vendam)
+  if (!open) return null;
+
   return (
-    <section className="book-section" id="book-test">
-      <div className="wrap">
+    <div
+      className="book-modal-backdrop"
+      onClick={onClose}
+      role="presentation"
+    >
+      <div
+        className="book-modal-dialog"
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Book Eye Test & Frame Try-On"
+      >
+        {/* Close Button */}
+        <button
+          type="button"
+          className="book-modal-close"
+          onClick={onClose}
+          aria-label="Close modal"
+        >
+          <X size={20} />
+        </button>
+
         <div className="book-card-container">
+          {/* Left Info Column */}
           <div className="book-info-side">
             <span className="book-pill">PROFESSIONAL OPTOMETRY</span>
             <h2>
@@ -85,8 +151,32 @@ export default function BookEyeTest({ showNotice }) {
                 </div>
               </div>
             </div>
+
+            {/* Direct Coimbatore Clinic Contact Strip */}
+            <div className="book-clinic-quick-contact">
+              <div className="clinic-contact-head">
+                <MapPin size={15} />
+                <span>Flagship Coimbatore Center</span>
+              </div>
+              <p>
+                No 99/100, Dr. Raja Road, Tatabad, Sivananda Colony, Coimbatore - 641012
+              </p>
+              <div className="clinic-contact-links">
+                <a href="tel:08838289852">
+                  <Phone size={13} /> Call: 088382 89852
+                </a>
+                <a
+                  href="https://wa.me/918838289852?text=Hi%20Olive%20Eye%20Care,%20I%20would%20like%20to%20book%20an%20eye%20test"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle size={14} /> WhatsApp: 88382 89852
+                </a>
+              </div>
+            </div>
           </div>
 
+          {/* Right Form Column */}
           <div className="book-form-side">
             {submitted ? (
               <div className="book-success-box">
@@ -100,7 +190,9 @@ export default function BookEyeTest({ showNotice }) {
                 <div className="success-details">
                   <p>
                     <strong>Service:</strong>{" "}
-                    {service === "clinic" ? "In-Store Comprehensive Eye Exam" : "Home Try-On & Vision Check"}
+                    {service === "clinic"
+                      ? "In-Store Comprehensive Eye Exam"
+                      : "Home Try-On & Vision Check"}
                   </p>
                   <p>
                     <strong>Customer:</strong> {formData.name} ({formData.phone})
@@ -112,9 +204,18 @@ export default function BookEyeTest({ showNotice }) {
                 <p className="success-note">
                   Our optometry coordinator will call you within 2 hours to confirm your slot.
                 </p>
-                <button className="book-reset-btn" onClick={resetForm}>
-                  Book Another Appointment
-                </button>
+                <div className="success-actions-row">
+                  <button type="button" className="book-reset-btn" onClick={resetForm}>
+                    Book Another Appointment
+                  </button>
+                  <button
+                    type="button"
+                    className="book-modal-done-btn"
+                    onClick={onClose}
+                  >
+                    Done &amp; Close
+                  </button>
+                </div>
               </div>
             ) : (
               <form className="book-form" onSubmit={handleSubmit}>
@@ -165,7 +266,7 @@ export default function BookEyeTest({ showNotice }) {
                     <input
                       type="tel"
                       required
-                      placeholder="+91 98765 43210"
+                      placeholder="88382 89852"
                       value={formData.phone}
                       onChange={(e) =>
                         setFormData({ ...formData, phone: e.target.value })
@@ -183,11 +284,19 @@ export default function BookEyeTest({ showNotice }) {
                         setFormData({ ...formData, city: e.target.value })
                       }
                     >
-                      <option value="Chennai">Chennai (T. Nagar / Anna Nagar)</option>
-                      <option value="Bangalore">Bangalore (Indiranagar / Koramangala)</option>
-                      <option value="Coimbatore">Coimbatore (RS Puram)</option>
-                      <option value="Hyderabad">Hyderabad (Jubilee Hills)</option>
-                      <option value="Mumbai">Mumbai (Bandra West)</option>
+                      <option value="Coimbatore (Flagship Clinic: Dr. Raja Road, Tatabad)">
+                        Coimbatore (Flagship Clinic: Dr. Raja Road, Tatabad)
+                      </option>
+                      <option value="Coimbatore (Home Eye Test & 5-Frame Try-On)">
+                        Coimbatore (Free Home Eye Test & 5-Frame Try-On)
+                      </option>
+                      <option value="Coimbatore (Sivananda Colony / Gandhipuram)">
+                        Coimbatore (Sivananda Colony / Gandhipuram)
+                      </option>
+                      <option value="Coimbatore (RS Puram / Saibaba Colony)">
+                        Coimbatore (RS Puram / Saibaba Colony)
+                      </option>
+                      <option value="Other Locations">Other Tamil Nadu Center</option>
                     </select>
                   </div>
 
@@ -222,6 +331,6 @@ export default function BookEyeTest({ showNotice }) {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

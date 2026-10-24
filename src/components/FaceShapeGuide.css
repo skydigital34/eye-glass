@@ -13,12 +13,12 @@
 
 .face-guide-head h2 {
   font: 500 clamp(28px, 4vw, 44px) / 1.15 "Playfair Display", serif;
-  color: #26382b;
+  color: #242d14;
   margin: 12px 0;
 }
 
 .face-guide-head h2 em {
-  color: #77876b;
+  color: #536928;
   font-style: italic;
 }
 
@@ -50,14 +50,14 @@
 }
 
 .shape-select-btn:hover {
-  border-color: #b99a5b;
+  border-color: #536928;
   background: #f6f3eb;
   transform: translateY(-2px);
 }
 
 .shape-select-btn.active {
-  border-color: #26382b;
-  background: #26382b;
+  border-color: #536928;
+  background: #536928;
   color: #f8f6f0;
   box-shadow: 0 8px 24px rgba(38, 56, 43, 0.16);
 }
@@ -66,12 +66,12 @@
   width: 48px;
   height: 58px;
   margin-bottom: 12px;
-  color: #77876b;
+  color: #536928;
   transition: color 0.3s ease;
 }
 
 .shape-select-btn.active .shape-svg-wrap {
-  color: #e4c987;
+  color: #ffffff;
 }
 
 .shape-name {
@@ -95,7 +95,7 @@
   top: -4px;
   width: 24px;
   height: 4px;
-  background: #e4c987;
+  background: #ffffff;
   border-radius: 4px;
 }
 
@@ -117,9 +117,9 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  background: rgba(185, 154, 91, 0.12);
-  border: 1px solid rgba(185, 154, 91, 0.3);
-  color: #8c6e30;
+  background: rgba(83, 105, 40, 0.12);
+  border: 1px solid rgba(83, 105, 40, 0.3);
+  color: #536928;
   padding: 6px 14px;
   font-size: 9.5px;
   font-weight: 700;
@@ -130,7 +130,7 @@
 
 .shape-detail-left h3 {
   font: 500 clamp(22px, 3vw, 28px)/1.25 "Playfair Display", serif;
-  color: #26382b;
+  color: #242d14;
   margin: 0 0 12px;
 }
 
@@ -158,7 +158,7 @@
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #26382b;
+  color: #242d14;
   margin-bottom: 8px;
 }
 
@@ -192,7 +192,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #26382b;
+  background: #536928;
   color: #f8f6f0;
   border: 0;
   padding: 13px 26px;
@@ -205,13 +205,13 @@
 }
 
 .shape-explore-btn:hover {
-  background: #3b5240;
+  background: #445620;
   gap: 14px;
   box-shadow: 0 4px 14px rgba(38, 56, 43, 0.25);
 }
 
 .shape-detail-right {
-  background: linear-gradient(135deg, #26382b 0%, #1e2c21 100%);
+  background: linear-gradient(135deg, #283413 0%, #465922 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -227,7 +227,7 @@
   width: 140px;
   height: 160px;
   margin: 0 auto 20px;
-  color: #e4c987;
+  color: #ffffff;
   filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35));
 }
 

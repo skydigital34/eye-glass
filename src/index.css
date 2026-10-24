@@ -5,13 +5,30 @@
 
 :root {
   font-family: "DM Sans", sans-serif;
-  color: #27352a;
-  background: #f8f6f0;
+  color: #242c16;
+  background: #f9f8f4;
 
-  --olive: #26382b;
-  --gold: #b99a5b;
-  --cream: #f8f6f0;
-  --muted: #77796e;
+  /* Olive Eye Care Signature Palette (from brand sign) */
+  --olive: #536928;
+  --olive-dark: #37461a;
+  --olive-darker: #242e12;
+  --olive-hover: #637d30;
+  --olive-light: #769639;
+  --olive-tint: #edf3e4;
+  --olive-tint-2: #e2eccf;
+  --olive-border: #cadab0;
+
+  --cream: #f9f8f4;
+  --cream-soft: #f2efe7;
+  --cream-dark: #e8e4d8;
+  --cream-border: #ded9cb;
+
+  --gold: #c8a757;
+  --gold-light: #e4c987;
+  --gold-pale: #fbf5e2;
+
+  --muted: #677353;
+  --white: #ffffff;
 }
 
 html,
@@ -44,7 +61,7 @@ img {
 /* Announcement Bar */
 .announcement {
   background: var(--olive);
-  color: #f6f2e7;
+  color: #ffffff;
   text-align: center;
   padding: 9px;
   font-size: 10px;
@@ -146,8 +163,8 @@ img {
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(23, 34, 25, 0.78),
-    rgba(23, 34, 25, 0.38) 43%,
+    rgba(34, 44, 16, 0.88),
+    rgba(34, 44, 16, 0.45) 43%,
     transparent 80%
   );
 }
@@ -162,7 +179,7 @@ img {
   font-size: 9px;
   letter-spacing: 0.19em;
   font-weight: 700;
-  color: #6c7a61;
+  color: var(--olive);
 }
 
 .hero-copy .eyebrow {
@@ -205,7 +222,7 @@ img {
   justify-content: space-around;
   gap: 20px;
   padding: 22px;
-  background: #efede4;
+  background: #f1efe8;
   font-size: 11px;
 }
 
@@ -216,7 +233,7 @@ img {
 }
 
 .trust svg {
-  color: #77836c;
+  color: var(--olive);
 }
 
 /* Common Container */
@@ -247,7 +264,7 @@ img {
 .section-heading h2 em,
 .newsletter em,
 .story em {
-  color: #77876b;
+  color: var(--olive);
 }
 
 .section-heading > p {
@@ -290,7 +307,7 @@ img {
   inset: 0;
   background: linear-gradient(
     0deg,
-    #1a261ec9,
+    rgba(34, 44, 16, 0.82),
     transparent 70%
   );
 }
@@ -489,7 +506,7 @@ img {
 .story {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: #eae8dd;
+  background: #ece8dc;
 }
 
 .story > img {
@@ -510,7 +527,7 @@ img {
 .story > div > p:not(.eyebrow) {
   font-size: 12px;
   line-height: 2;
-  color: #696e62;
+  color: #556242;
   max-width: 360px;
 }
 
@@ -611,7 +628,7 @@ img {
   position: fixed;
   inset: 0;
   z-index: 50;
-  background: #10191273;
+  background: rgba(30, 39, 16, 0.65);
   display: flex;
   justify-content: flex-end;
 }
@@ -667,6 +684,46 @@ img {
 
 .cart-row div button {
   padding: 4px;
+}
+
+/* Cart Delivery Pill Box */
+.cart-delivery-pill-box {
+  margin-top: 18px;
+  background: #fbfbf9;
+  border: 1.5px solid rgba(56, 76, 31, 0.22);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cart-del-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #dcfce7;
+  color: #14532d;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  align-self: flex-start;
+  box-shadow: 0 0 0 1px #86efac;
+}
+
+.cart-del-timings {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11.5px;
+  color: #4b5240;
+}
+
+.cart-del-timings strong {
+  color: #2b3917;
+  font-weight: 700;
 }
 
 /* Cart Subtotal */
@@ -784,8 +841,8 @@ img {
   .hero-shade {
     background: linear-gradient(
       0deg,
-      #172219e8,
-      rgba(23, 34, 25, 0.25) 85%
+      rgba(34, 44, 16, 0.92),
+      rgba(34, 44, 16, 0.25) 85%
     );
   }
 
@@ -937,7 +994,7 @@ img {
 }
 
 .contact-heading .eyebrow {
-  color: #77876b;
+  color: var(--olive);
   font-size: 9px;
   letter-spacing: 2px;
 }
@@ -945,12 +1002,12 @@ img {
 .contact-heading h2 {
   font: 500 clamp(38px, 5vw, 54px)/1.1
     "Playfair Display", serif;
-  color: #26382b;
+  color: #536928;
   margin: 12px 0;
 }
 
 .contact-heading h2 em {
-  color: #77876b;
+  color: var(--olive);
 }
 
 .contact-heading > p:last-child {
@@ -974,8 +1031,8 @@ img {
 /* Left contact information */
 
 .contact-info {
-  background: #26382b;
-  color: #f8f6f0;
+  background: linear-gradient(145deg, #37461a 0%, #536928 100%);
+  color: #ffffff;
   padding: 38px 30px;
 }
 
@@ -1034,7 +1091,7 @@ img {
 
 .contact-form h3 {
   font: 500 27px "Playfair Display", serif;
-  color: #26382b;
+  color: #536928;
   margin: 0 0 25px;
 }
 
@@ -1054,7 +1111,7 @@ img {
 }
 
 .contact-field label {
-  color: #26382b;
+  color: #536928;
   font-size: 11px;
   font-weight: 600;
 }
@@ -1068,7 +1125,7 @@ img {
   border: 1px solid #deded3;
   border-radius: 0;
   background: #fcfbf8;
-  color: #26382b;
+  color: #536928;
   font-family: inherit;
   font-size: 11px;
   outline: none;
@@ -1106,7 +1163,7 @@ img {
   margin-top: 22px;
   padding: 14px 18px;
   border: 0;
-  background: #26382b;
+  background: #536928;
   color: #f8f6f0;
   display: flex;
   align-items: center;
@@ -1118,7 +1175,7 @@ img {
 }
 
 .contact-submit:hover {
-  background: #435640;
+  background: #637d30;
 }
 
 /* Tablet */
@@ -1172,5 +1229,108 @@ img {
   .contact-info h3,
   .contact-form h3 {
     font-size: 24px;
+  }
+}
+
+/* ============================================================
+   FLOATING WHATSAPP BUTTON (COIMBATORE QUICK SUPPORT)
+============================================================ */
+.floating-wa-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4), 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease, background 0.2s ease;
+  text-decoration: none;
+}
+
+.floating-wa-btn:hover {
+  background: #1eb857;
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 14px 30px rgba(37, 211, 102, 0.5), 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.floating-wa-btn .wa-tooltip {
+  position: absolute;
+  right: 68px;
+  white-space: nowrap;
+  background: #233112;
+  color: #f9f8f4;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.floating-wa-btn .wa-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+  border-width: 5px 0 5px 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #233112;
+}
+
+.floating-wa-btn:hover .wa-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Pulsing radar ring */
+.floating-wa-btn::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 2px solid #25d366;
+  opacity: 0.8;
+  animation: waPulse 2.4s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  pointer-events: none;
+}
+
+@keyframes waPulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .floating-wa-btn {
+    bottom: 80px; /* Above mobile bottom bar */
+    right: 20px;
+    width: 52px;
+    height: 52px;
+  }
+  .floating-wa-btn .wa-tooltip {
+    display: none;
   }
 }

@@ -5,6 +5,7 @@ import {
   Trash2,
   X,
   ShoppingBag,
+  Truck,
 } from "lucide-react";
 import { money } from "../data/products.js";
 
@@ -14,6 +15,7 @@ export default function CartDrawer({
   cart,
   changeQty,
   removeItem,
+  onCheckout,
   showNotice,
 }) {
   if (!open) return null;
@@ -90,22 +92,36 @@ export default function CartDrawer({
               </div>
             ))}
 
+            {/* Delivery Alert Pill */}
+            <div className="cart-delivery-pill-box">
+              <div className="cart-del-tag">
+                <Truck size={13} />
+                <span>FREE DELIVERY AVAILABLE IN TAMIL NADU</span>
+              </div>
+              <div className="cart-del-timings">
+                <span>⚡ Tamil Nadu: <strong>1 to 3 Days</strong></span>
+                <span>📦 Rest of India: <strong>7 to 10 Days</strong></span>
+              </div>
+            </div>
+
             <div className="subtotal">
               <b>Subtotal</b>
               <b>{money(total)}</b>
             </div>
 
             <p className="muted">
-              Shipping and taxes calculated at checkout.
+              Delivery dispatch from our central Coimbatore optical laboratory.
             </p>
 
             <button
               className="checkout"
-              onClick={() =>
-                showNotice(
-                  "Demo only — checkout is not connected yet."
-                )
-              }
+              onClick={() => {
+                if (onCheckout) {
+                  onCheckout();
+                } else {
+                  showNotice?.("Proceeding to checkout...");
+                }
+              }}
             >
               Continue to checkout
             </button>

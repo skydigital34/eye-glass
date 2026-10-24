@@ -13,14 +13,14 @@
 .shop-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 18px 36px rgba(38, 56, 43, 0.12);
-  border-color: #b99a5b;
+  border-color: #536928;
 }
 
 .shop-photo {
   position: relative;
   height: 260px;
   overflow: hidden;
-  background: #eeece4;
+  background: #f3f1ea;
 }
 
 .shop-photo-link {
@@ -53,8 +53,8 @@
 }
 
 .b-green {
-  background: #e3efe3;
-  color: #2f5a3a;
+  background: #edf3e4;
+  color: #37461a;
 }
 
 .b-rose {
@@ -78,7 +78,7 @@
   border: 0;
   border-radius: 50%;
   background: #ffffff;
-  color: #26382b;
+  color: #242d14;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   z-index: 2;
@@ -106,7 +106,7 @@
 
 .shop-price b {
   font: 600 22px "Playfair Display", serif;
-  color: #26382b;
+  color: #242d14;
 }
 
 .shop-price del {
@@ -130,7 +130,7 @@
   font-size: 13px;
   font-weight: 500;
   line-height: 1.4;
-  color: #27352a;
+  color: #242d14;
 }
 
 .shop-info h3 a {
@@ -139,7 +139,7 @@
 }
 
 .shop-info h3 a:hover {
-  color: #b99a5b;
+  color: #536928;
 }
 
 .shop-rating {
@@ -180,22 +180,22 @@
 .shop-add {
   border: 1px solid #ddd9cc;
   background: #f6f3ec;
-  color: #26382b;
+  color: #242d14;
 }
 
 .shop-add:hover {
-  border-color: #26382b;
+  border-color: #242d14;
   background: #ffffff;
 }
 
 .shop-buy {
-  border: 1px solid #26382b;
-  background: #26382b;
+  border: 1px solid #536928;
+  background: #536928;
   color: #ffffff;
 }
 
 .shop-buy:hover {
-  background: #3a503e;
+  background: #445620;
 }
 
 /* ===== MOBILE RESPONSIVE OPTIMIZATIONS ===== */

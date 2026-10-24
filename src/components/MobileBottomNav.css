@@ -11,10 +11,10 @@
     left: 0;
     right: 0;
     z-index: 1500;
-    background: rgba(26, 21, 17, 0.94);
+    background: rgba(30, 39, 16, 0.95);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    border-top: 1px solid rgba(209, 177, 91, 0.25);
+    border-top: 1px solid rgba(83, 105, 40, 0.35);
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25);
     padding-bottom: env(safe-area-inset-bottom, 8px);
   }
@@ -36,7 +36,7 @@
     align-items: center;
     justify-content: center;
     gap: 3px;
-    color: #a49e95;
+    color: #9cb085;
     text-decoration: none;
     background: transparent;
     border: none;
@@ -52,7 +52,7 @@
   }
 
   .mobile-tab-item.active {
-    color: #ffd988;
+    color: #ffffff;
   }
 
   .tab-icon-wrap {
@@ -77,9 +77,9 @@
     bottom: 2px;
     width: 14px;
     height: 2.5px;
-    background: #ffd988;
+    background: #536928;
     border-radius: 4px;
-    box-shadow: 0 0 8px rgba(255, 217, 136, 0.6);
+    box-shadow: 0 0 8px rgba(83, 105, 40, 0.6);
   }
 
   /* Badge counters */
@@ -106,7 +106,7 @@
   }
 
   .cart-badge {
-    background: #ffd988;
-    color: #1a1511;
+    background: #536928;
+    color: #ffffff;
   }
 }

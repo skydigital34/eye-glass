@@ -14,7 +14,9 @@ import {
   MessageCircle,
   ChevronRight,
   Info,
+  Award,
 } from "lucide-react";
+import BrandLogo from "./BrandLogo.jsx";
 import "./MobileAppDrawer.css";
 
 export default function MobileAppDrawer({ open, onClose }) {
@@ -42,13 +44,7 @@ export default function MobileAppDrawer({ open, onClose }) {
         {/* Drawer Header */}
         <div className="drawer-header">
           <div className="drawer-brand">
-            <span className="drawer-logo-icon">
-              <Eye size={22} />
-            </span>
-            <div>
-              <strong>OLIVE</strong>
-              <small>EYE CARE</small>
-            </div>
+            <BrandLogo theme="light" size={0.95} />
           </div>
 
           <button
@@ -87,6 +83,14 @@ export default function MobileAppDrawer({ open, onClose }) {
               </div>
               <span className="drawer-count-pill">36+</span>
             </Link>
+
+            <Link to="/contact-lenses" className="drawer-link" onClick={onClose}>
+              <div className="drawer-link-left">
+                <Eye size={18} />
+                <span>Contact Lenses</span>
+              </div>
+              <span className="drawer-count-pill">24+</span>
+            </Link>
           </div>
 
           {/* Section 2: Interactive Services */}
@@ -100,10 +104,10 @@ export default function MobileAppDrawer({ open, onClose }) {
               <ChevronRight size={16} />
             </a>
 
-            <a href="/#lens-guide" className="drawer-link" onClick={onClose}>
+            <a href="/#brands" className="drawer-link" onClick={onClose}>
               <div className="drawer-link-left">
-                <ShieldCheck size={18} />
-                <span>Precision Lens Science</span>
+                <Award size={18} />
+                <span>Our Brands (8 Global Houses)</span>
               </div>
               <ChevronRight size={16} />
             </a>
@@ -150,18 +154,18 @@ export default function MobileAppDrawer({ open, onClose }) {
             <span className="support-title">NEED ASSISTANCE?</span>
             <div className="support-actions">
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/918838289852?text=Hi%20Olive%20Eye%20Care,%20I%20need%20assistance"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="support-btn whatsapp-btn"
               >
                 <MessageCircle size={16} />
-                <span>WhatsApp Optometrist</span>
+                <span>WhatsApp: 88382 89852</span>
               </a>
 
-              <a href="tel:+919876543210" className="support-btn call-btn">
+              <a href="tel:08838289852" className="support-btn call-btn">
                 <Phone size={15} />
-                <span>Call Care Helpline</span>
+                <span>Call: 088382 89852</span>
               </a>
             </div>
           </div>

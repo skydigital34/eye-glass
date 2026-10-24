@@ -1,8 +1,8 @@
 .promo-strip {
-  background: linear-gradient(135deg, #1f2e23 0%, #293d2e 60%, #1e2c21 100%);
+  background: linear-gradient(135deg, #273413 0%, #3e4f20 60%, #536928 100%);
   color: #f8f6f0;
-  border-top: 1px solid rgba(185, 154, 91, 0.25);
-  border-bottom: 1px solid rgba(185, 154, 91, 0.25);
+  border-top: 1px solid rgba(83, 105, 40, 0.4);
+  border-bottom: 1px solid rgba(83, 105, 40, 0.4);
   position: relative;
   overflow: hidden;
 }
@@ -39,9 +39,9 @@
   align-items: center;
   gap: 7px;
   padding: 6px 14px;
-  border: 1px solid rgba(228, 201, 135, 0.4);
-  background: rgba(228, 201, 135, 0.12);
-  color: #f1dfb0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(83, 105, 40, 0.4);
+  color: #ffffff;
   font-size: 10px;
   letter-spacing: 0.16em;
   font-weight: 700;
@@ -61,14 +61,14 @@
 }
 
 .promo-content h3 strong {
-  color: #e6ce92;
+  color: #d6ecaa;
   font-weight: 600;
 }
 
 .promo-content p {
   margin: 0;
   font-size: 12px;
-  color: #cfd4cb;
+  color: #dbe4cc;
   line-height: 1.5;
 }
 
@@ -84,7 +84,7 @@
   align-items: center;
   gap: 9px;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px dashed #cbb17b;
+  border: 1px dashed #d2e4a6;
   color: #f8f6f0;
   padding: 10px 16px;
   font-size: 11px;
@@ -117,12 +117,12 @@
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.08em;
-  color: #ffd988;
+  color: #ffffff;
 }
 
 .promo-shop-btn {
-  background: #cbb17b;
-  color: #1a271d;
+  background: #536928;
+  color: #ffffff;
   border: 0;
   padding: 11px 20px;
   font-size: 11px;
@@ -134,9 +134,139 @@
 }
 
 .promo-shop-btn:hover {
-  background: #dec896;
+  background: #647f30;
   box-shadow: 0 4px 14px rgba(203, 177, 123, 0.35);
   transform: translateY(-1px);
+}
+
+/* ============================================================
+   PROMINENT DELIVERY INFORMATION CARD
+============================================================ */
+.promo-delivery-highlight-box {
+  width: min(1180px, 88%);
+  margin: 0 auto 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(214, 236, 170, 0.35);
+  border-radius: 16px;
+  padding: 18px 24px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.delivery-highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 8px;
+  background: #dcfce7;
+  color: #14532d;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15), 0 0 0 1px #86efac;
+}
+
+.delivery-cards-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.delivery-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  transition: all 0.25s ease;
+}
+
+.delivery-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.tn-delivery-card {
+  border-color: rgba(134, 239, 172, 0.4);
+  background: rgba(34, 197, 94, 0.08);
+}
+
+.d-card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.d-card-top strong {
+  font-size: 12.5px;
+  color: #ffffff;
+}
+
+.tn-delivery-card .d-card-top strong {
+  color: #dcfce7;
+}
+
+.live-dot-glow {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px #4ade80;
+  flex-shrink: 0;
+}
+
+.live-dot-glow.grey {
+  background: #94a3b8;
+  box-shadow: none;
+}
+
+.d-card-days {
+  font-size: 13px;
+  color: #e2e8f0;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.d-card-days b {
+  font-size: 18px;
+  color: #fef08a;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.delivery-card p {
+  margin: 0;
+  font-size: 11px;
+  color: #cbd5e1;
+  line-height: 1.4;
+}
+
+.highlight-delivery-perk {
+  color: #fef08a !important;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .delivery-cards-duo {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .delivery-highlight-badge {
+    align-self: center;
+    font-size: 10.5px;
+    padding: 5px 12px;
+    text-align: center;
+  }
 }
 
 .promo-perks {
@@ -148,7 +278,7 @@
   justify-content: space-around;
   gap: 16px;
   font-size: 11px;
-  color: #cfd4cb;
+  color: #dbe4cc;
   position: relative;
   z-index: 1;
 }
@@ -160,7 +290,7 @@
 }
 
 .promo-perk svg {
-  color: #cbb17b;
+  color: #d2e4a6;
   flex-shrink: 0;
 }
 

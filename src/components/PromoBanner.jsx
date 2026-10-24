@@ -47,10 +47,42 @@ export default function PromoBanner({ showNotice, scrollToProducts }) {
         </div>
       </div>
 
+      {/* Prominent Delivery Information Card */}
+      <div className="promo-delivery-highlight-box">
+        <div className="delivery-highlight-badge">
+          <Truck size={16} />
+          <strong>FREE DELIVERY AVAILABLE IN TAMIL NADU</strong>
+        </div>
+
+        <div className="delivery-cards-duo">
+          <div className="delivery-card tn-delivery-card">
+            <div className="d-card-top">
+              <span className="live-dot-glow" />
+              <strong>Tamil Nadu Orders (100% Free Shipping)</strong>
+            </div>
+            <div className="d-card-days">
+              <span>Delivery Time:</span> <b>1 to 3 Days</b>
+            </div>
+            <p>Coimbatore, Chennai, Madurai, Trichy, Salem &amp; all TN districts</p>
+          </div>
+
+          <div className="delivery-card india-delivery-card">
+            <div className="d-card-top">
+              <span className="live-dot-glow grey" />
+              <strong>All Other Places Across India</strong>
+            </div>
+            <div className="d-card-days">
+              <span>Delivery Time:</span> <b>7 to 10 Days</b>
+            </div>
+            <p>Insured Express Delivery to Bangalore, Hyderabad, Mumbai, Delhi &amp; nationwide</p>
+          </div>
+        </div>
+      </div>
+
       <div className="promo-perks">
-        <div className="promo-perk">
+        <div className="promo-perk highlight-delivery-perk">
           <Truck size={14} />
-          <span>Free Express Shipping Across India</span>
+          <span>Free Delivery: Tamil Nadu Only (1-3 Days) · Rest of India (7-10 Days)</span>
         </div>
         <div className="promo-perk">
           <ShieldCheck size={14} />
@@ -58,7 +90,7 @@ export default function PromoBanner({ showNotice, scrollToProducts }) {
         </div>
         <div className="promo-perk">
           <RotateCcw size={14} />
-          <span>14-Day Risk-Free Home Exchange</span>
+          <span>No Returns · Only Exchange</span>
         </div>
       </div>
     </section>

@@ -7,7 +7,7 @@ const IMAGES = [
   "https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=900&q=85",
 ];
 
-const make = (id, name, price, oldPrice, tag, shape, color) => ({
+const make = (id, name, price, oldPrice, tag, shape, color, brand = null) => ({
   id,
   name,
   category: "Sunglasses",
@@ -16,6 +16,7 @@ const make = (id, name, price, oldPrice, tag, shape, color) => ({
   tag,
   shape,
   color,
+  brand,
   image: IMAGES[id % IMAGES.length],
 });
 
@@ -26,17 +27,17 @@ export const sunglasses = [
   make(104, "The Luna", 2399, 3099, "BESTSELLER", "Round", "Gold"),
   make(105, "The Kai", 1799, 2299, "NEW", "Square", "Black"),
   make(106, "The Coco", 2499, 3199, "TRENDING", "Cat-eye", "Tortoise"),
-  make(107, "The Atlas", 2999, 3799, "PREMIUM", "Aviator", "Gold & Black"),
+  make(107, "The Atlas", 2999, 3799, "PREMIUM", "Aviator", "Gold & Black", "Ray-Ban"),
   make(108, "The Freya", 2699, 3399, "BESTSELLER", "Oversized", "Chocolate Brown"),
   make(109, "The Pearl", 2299, 2899, "NEW", "Oval", "Ivory"),
   make(110, "The Skye", 1999, 2599, "EVERYDAY", "Round", "Matte Brown"),
   make(111, "The Indie", 2399, 2999, "TRENDING", "Rectangle", "Olive Brown"),
-  make(112, "The Solene", 2899, 3599, "LIMITED", "Cat-eye", "Champagne Gold"),
+  make(112, "The Solene", 2899, 3599, "LIMITED", "Cat-eye", "Champagne Gold", "Arcadio Milano"),
   make(113, "The Dune", 2099, 2699, "NEW", "Square", "Sand Beige"),
   make(114, "The Rio", 2349, 2999, "TRENDING", "Aviator", "Silver Mirror"),
   make(115, "The Ayla", 2549, 3249, "POPULAR", "Oversized", "Honey Tortoise"),
   make(116, "The Zane", 1949, 2549, "EVERYDAY", "Rectangle", "Matte Black"),
-  make(117, "The Margot", 2799, 3499, "PREMIUM", "Cat-eye", "Burgundy"),
+  make(117, "The Margot", 2799, 3499, "PREMIUM", "Cat-eye", "Burgundy", "Vogue"),
   make(118, "The Cruz", 2199, 2799, "NEW", "Round", "Blue Mirror"),
   make(119, "The Vera", 2649, 3349, "BESTSELLER", "Oval", "Rose Gold"),
   make(120, "The Blake", 1849, 2399, "VALUE PICK", "Square", "Gunmetal"),

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Eye, Phone, Mail, MapPin, ShieldCheck, Heart } from "lucide-react";
+import { Eye, Phone, Mail, MapPin, ShieldCheck, Heart, MessageCircle, RotateCcw } from "lucide-react";
+import BrandLogo from "./BrandLogo.jsx";
 import "./Footer.css";
 
 export default function Footer() {
@@ -11,13 +12,7 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="footer-col brand-col">
             <div className="footer-brand">
-              <span className="brand-mark">
-                <Eye size={22} />
-              </span>
-              <div>
-                <strong>OLIVE</strong>
-                <small>EYE CARE</small>
-              </div>
+              <BrandLogo theme="light" size={1.15} />
             </div>
 
             <p className="footer-tagline">
@@ -26,17 +21,30 @@ export default function Footer() {
             </p>
 
             <div className="footer-contact-details">
-              <div className="contact-item">
+              <a href="tel:08838289852" className="contact-item">
                 <Phone size={14} />
-                <span>+91 (044) 4892 0100 / +91 98765 43210</span>
-              </div>
-              <div className="contact-item">
+                <span>Call: 088382 89852</span>
+              </a>
+              <a
+                href="https://wa.me/918838289852?text=Hi%20Olive%20Eye%20Care,%20I%20would%20like%20to%20know%20more%20about%20your%20services"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-item whatsapp-item"
+              >
+                <MessageCircle size={14} />
+                <span>WhatsApp: 88382 89852</span>
+              </a>
+              <a href="mailto:oliveyecare@gmail.com" className="contact-item">
                 <Mail size={14} />
-                <span>care@oliveeyecare.com</span>
-              </div>
-              <div className="contact-item">
-                <MapPin size={14} />
-                <span>Experience Stores: Chennai · Bangalore · Mumbai</span>
+                <span>oliveyecare@gmail.com</span>
+              </a>
+              <div className="contact-item address-item">
+                <MapPin size={15} />
+                <span>
+                  No 99/100, Dr. Raja Road, Tatabad, Sivananda Colony,
+                  <br />
+                  Coimbatore, Tamil Nadu - 641012
+                </span>
               </div>
             </div>
           </div>
@@ -102,7 +110,10 @@ export default function Footer() {
                 <a href="#how-it-works">1-Year Warranty</a>
               </li>
               <li>
-                <a href="#how-it-works">14-Day Returns</a>
+                <a href="#faq" className="footer-exchange-link" title="Exchange Policy">
+                  <RotateCcw size={12} />
+                  <span>No Returns · Only Exchange</span>
+                </a>
               </li>
             </ul>
           </div>

@@ -16,16 +16,16 @@
 }
 
 .pd-crumb a {
-  color: #26382b;
+  color: #536928;
   transition: color 0.3s ease;
 }
 
 .pd-crumb a:hover {
-  color: #b99a5b;
+  color: #536928;
 }
 
 .pd-crumb svg {
-  color: #b99a5b;
+  color: #536928;
 }
 
 .pd-top {
@@ -57,7 +57,7 @@
   border: 2px solid transparent;
   border-radius: 8px;
   overflow: hidden;
-  background: #eeece4;
+  background: #f3f1ea;
   opacity: 0.65;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -66,7 +66,7 @@
 .pd-thumbs button:hover,
 .pd-thumbs button.active {
   opacity: 1;
-  border-color: #b99a5b;
+  border-color: #536928;
 }
 
 .pd-thumbs img {
@@ -80,7 +80,7 @@
   height: 560px;
   overflow: hidden;
   border-radius: 14px;
-  background: #eeece4;
+  background: #f3f1ea;
   box-shadow: 0 18px 45px rgba(38, 56, 43, 0.12);
 }
 
@@ -118,7 +118,7 @@
   border: 0;
   border-radius: 50%;
   background: #fff;
-  color: #26382b;
+  color: #536928;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   transition: transform 0.3s ease, color 0.3s ease;
@@ -126,7 +126,7 @@
 
 .pd-share:hover {
   transform: scale(1.1);
-  color: #b99a5b;
+  color: #536928;
 }
 
 .pd-tag {
@@ -135,7 +135,7 @@
   left: 18px;
   padding: 7px 16px;
   border-radius: 50px;
-  background: #c9a85c;
+  background: #536928;
   color: #fff;
   font-size: 11px;
   font-weight: 700;
@@ -147,13 +147,13 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.24em;
-  color: #b99a5b;
+  color: #536928;
 }
 
 .pd-title {
   margin: 8px 0 14px;
   font: 500 clamp(28px, 3.4vw, 40px) / 1.15 "Playfair Display", serif;
-  color: #1f2a21;
+  color: #242d14;
 }
 
 .pd-price {
@@ -166,7 +166,7 @@
 
 .pd-price b {
   font: 600 38px "Playfair Display", serif;
-  color: #b99a5b;
+  color: #536928;
 }
 
 .pd-price del {
@@ -177,10 +177,10 @@
 .pd-price span {
   padding: 5px 12px;
   border-radius: 50px;
-  background: #e3efe3;
+  background: #edf3e4;
   font-size: 11px;
   font-weight: 700;
-  color: #2f5a3a;
+  color: #37461a;
 }
 
 .pd-tabs {
@@ -195,7 +195,7 @@
   border-radius: 6px;
   background: #fff;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  color: #1f2a21;
+  color: #242d14;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -204,7 +204,7 @@
 }
 
 .pd-tabs button.active {
-  background: #1d1914;
+  background: #536928;
   color: #fff;
 }
 
@@ -224,7 +224,7 @@
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.22em;
-  color: #b99a5b;
+  color: #536928;
 }
 
 .pd-card p,
@@ -260,12 +260,12 @@
 }
 
 .pd-details svg {
-  color: #b99a5b;
+  color: #536928;
   margin-top: 2px;
 }
 
 .pd-details b {
-  color: #1f2a21;
+  color: #242d14;
 }
 
 .pd-badges {
@@ -281,7 +281,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   line-height: 1.5;
-  color: #1f2a21;
+  color: #242d14;
 }
 
 .pd-label {
@@ -304,13 +304,13 @@
   place-items: center;
   border: 0;
   background: transparent;
-  color: #1f2a21;
+  color: #242d14;
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .pd-qty button:hover {
-  color: #b99a5b;
+  color: #536928;
 }
 
 .pd-qty b {
@@ -339,9 +339,9 @@
 
 .pd-add {
   border: 0;
-  background: linear-gradient(135deg, #d4b068, #b8892e);
-  color: #1f1a15;
-  box-shadow: 0 12px 28px rgba(185, 154, 91, 0.35);
+  background: #536928;
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(83, 105, 40, 0.35);
 }
 
 .pd-add:hover {
@@ -351,7 +351,7 @@
 
 .pd-buy {
   border: 1px solid #1d1914;
-  background: #26382b;
+  background: #2b3716;
   color: #fff;
 }
 
@@ -378,6 +378,78 @@
   background: #43a047;
 }
 
+/* Special Tamil Nadu Delivery Info Card */
+.pd-delivery-info-card {
+  margin-top: 22px;
+  background: #fbfbf9;
+  border: 1.5px solid rgba(56, 76, 31, 0.2);
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pd-del-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #dcfce7;
+  color: #14532d;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  align-self: flex-start;
+  box-shadow: 0 0 0 1px #86efac;
+}
+
+.pd-del-timings {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 2px;
+}
+
+.pd-del-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #4b5240;
+}
+
+.pd-del-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pd-del-dot.green {
+  background: #22c55e;
+  box-shadow: 0 0 6px #22c55e;
+}
+
+.pd-del-dot.grey {
+  background: #94a3b8;
+}
+
+.pd-del-row.tn-highlight strong {
+  color: #2b3917;
+  font-weight: 800;
+  font-size: 13.5px;
+  background: #eef7e6;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.pd-del-row.india-row strong {
+  color: #334155;
+  font-weight: 700;
+}
+
 /* ===== RECOMMENDATIONS ===== */
 .pd-rec {
   margin-top: 100px;
@@ -387,7 +459,7 @@
   margin: 0 0 14px;
   font-size: 11px;
   letter-spacing: 0.5em;
-  color: #b99a5b;
+  color: #536928;
 }
 
 .pd-rec h2 {
@@ -398,7 +470,7 @@
 
 .pd-rec h2 em {
   font-style: italic;
-  color: #b99a5b;
+  color: #536928;
 }
 
 .pd-rail-wrap {
@@ -434,14 +506,14 @@
   border: 0;
   border-radius: 50%;
   background: #fff;
-  color: #1f2a21;
+  color: #242d14;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
   cursor: pointer;
   transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
 
 .pd-arrow:hover {
-  background: #b99a5b;
+  background: #536928;
   color: #fff;
   transform: scale(1.08);
 }
@@ -460,7 +532,7 @@
 }
 
 .pd-missing a {
-  color: #b99a5b;
+  color: #536928;
   text-decoration: underline;
 }
 

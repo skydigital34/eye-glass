@@ -1,148 +1,292 @@
-import React, { useState } from "react";
-import { Laptop, Sun, Shield, Droplets, CheckCircle2, ToggleLeft, ToggleRight } from "lucide-react";
+import React, { useState, useMemo } from "react";
+import {
+  ShieldCheck,
+  Award,
+  Sparkles,
+  ArrowRight,
+  Check,
+  Star,
+  ExternalLink,
+  Glasses,
+} from "lucide-react";
 import "./LensGuide.css";
 
-const LENSES = [
+const BRANDS = [
   {
-    id: "blue-light",
-    icon: Laptop,
-    badge: "WORK FROM HOME ESSENTIAL",
-    title: "Digital BlueShield™",
-    subtitle: "Anti-Fatigue Computer Glasses",
-    desc: "Engineered specifically for screen workers. Selectively filters 98% of harsh blue-violet light emitted from smartphones, monitors, and LED screens.",
-    benefits: [
-      "Zero eye redness & fatigue after long work hours",
-      "Better natural sleep melatonin cycle",
-      "Available with prescription or zero power",
-    ],
+    id: "rayban",
+    name: "Ray-Ban",
+    tagline: "Since 1937 · Italy / USA",
+    badge: "GLOBAL ICON",
+    badgeColor: "gold",
+    category: "luxury",
+    specialty: "Legendary Aviator, Wayfarer & Clubmaster",
+    desc: "The undisputed global icon of timeless eyewear. Engineered with signature G-15 mineral crystal lenses, hypoallergenic acetate, and military-heritage aviators.",
+    highlights: ["100% UV400 Protection", "Polarized G-15 Glass", "Classic Metal & Acetate"],
+    count: "48+ Frames in Store",
+    rating: "5.0",
+    styleType: "Timeless Rebel & Classic Americana",
   },
   {
-    id: "photochromic",
-    icon: Sun,
-    badge: "ALL-IN-ONE SOLUTION",
-    title: "Intelligent Photochromic",
-    subtitle: "Light-Responsive Transition Lenses",
-    desc: "Seamlessly adapts to your environment. Ultra-clear indoors and transitions into dark UV sunglasses in under 30 seconds when exposed to natural sunlight.",
-    benefits: [
-      "No need to switch between eyeglasses and sunglasses",
-      "100% UVA & UVB full spectrum defense",
-      "Smooth, rapid indoor fade-back technology",
-    ],
+    id: "prodesign",
+    name: "ProDesign Denmark",
+    tagline: "Founded 1973 · Aarhus, Denmark",
+    badge: "ARCHITECTURAL DESIGN",
+    badgeColor: "olive",
+    category: "minimal",
+    specialty: "Architectural Clean Scandinavian Minimalism",
+    desc: "Clean Danish aesthetics meeting surgical-grade engineering. Ultra-lightweight Japanese titanium frames, clean geometric profiles, and patented ergonomic flex hinges.",
+    highlights: ["Pure Japanese Titanium", "Screwless Flex Hinges", "Featherlight Comfort"],
+    count: "28+ Frames in Store",
+    rating: "4.9",
+    styleType: "Nordic Minimalist & Modern Tech",
   },
   {
-    id: "anti-glare",
-    icon: Shield,
-    badge: "CRYSTAL VISION",
-    title: "UltraClear™ Anti-Reflective",
-    subtitle: "Night Driving & Camera-Ready",
-    desc: "Eliminates frustrating surface reflections and glare. Ideal for night driving through high beams and looking sharp on Zoom calls without glass glare.",
-    benefits: [
-      "Drastically reduces night headlight starbursts",
-      "Lens disappears on camera — your eyes shine through",
-      "Maximum light transmission for 20/20 sharpness",
-    ],
+    id: "nova",
+    name: "Nova",
+    tagline: "High-Definition Optical Science",
+    badge: "LENS TECHNOLOGY",
+    badgeColor: "tech",
+    category: "optics",
+    specialty: "Advanced Digital Free-Form & Blue-Cut Optics",
+    desc: "Pioneering visual clarity through advanced digital free-form lenses, all-day blue-cut filtering, anti-fatigue coatings, and robust optical frames.",
+    highlights: ["Digital Free-Form Clarity", "BlueX Screen Shield", "Anti-Reflective Hydrophobic"],
+    count: "36+ Frames in Store",
+    rating: "4.8",
+    styleType: "Precision Science & Daily Optical",
   },
   {
-    id: "hydrophobic",
-    icon: Droplets,
-    badge: "MAXIMUM DURABILITY",
-    title: "DiamondCoat™ Hydrophobic",
-    subtitle: "Scratch & Smudge Defense",
-    desc: "A tough multi-layer nano shield that repels moisture, dust, oil, and fingerprint grease with effortless wipe-clean convenience.",
-    benefits: [
-      "Water droplets slide right off during rainy days",
-      "3x higher resistance against accidental drops & scratches",
-      "Stays cleaner 4x longer than standard lenses",
-    ],
+    id: "arcadio",
+    name: "Arcadio",
+    tagline: "Milanese High-Octane Luxury",
+    badge: "PREMIUM LUXURY",
+    badgeColor: "gold",
+    category: "luxury",
+    specialty: "Hand-Sculpted Italian Acetates & Polarized Shields",
+    desc: "Bold luxury engineered for high performance. Sculpted multi-layer Italian acetates with polarized glare-shield optics, gold-toned temples, and striking silhouettes.",
+    highlights: ["Hand-Carved Italian Acetate", "Polarized Shield Lenses", "24K Gold Plated Accents"],
+    count: "24+ Frames in Store",
+    rating: "4.9",
+    styleType: "Executive Prestige & High Fashion",
+  },
+  {
+    id: "vogue",
+    name: "Vogue",
+    tagline: "Florence, Italy · Runway to Street",
+    badge: "RUNWAY COUTURE",
+    badgeColor: "fashion",
+    category: "luxury",
+    specialty: "Chic Cat-Eyes, Pastel Tints & Geometric Profiles",
+    desc: "Runway glamour translated into accessible everyday statements. Vibrant color palettes, playful feminine angles, and trendsetting celebrity capsule edits.",
+    highlights: ["Runway Trend Editions", "Jewel-Tone Colorways", "Featherlight Acetate"],
+    count: "38+ Frames in Store",
+    rating: "4.9",
+    styleType: "Contemporary Chic & Glamour",
+  },
+  {
+    id: "fastrack",
+    name: "Fastrack",
+    tagline: "Urban Youth Movement",
+    badge: "YOUTH & STREETWEAR",
+    badgeColor: "youth",
+    category: "youth",
+    specialty: "Sport Wraps, Rimless Aviators & Mirror Shades",
+    desc: "Bold, energetic, and unapologetic eyewear crafted for dynamic daily wear. High-impact polycarbonate frames, mirror flash coatings, and ergonomic anti-slip grips.",
+    highlights: ["Impact-Proof Polycarbonate", "Flash Mirror UV Coating", "Anti-Slip Sport Grips"],
+    count: "42+ Frames in Store",
+    rating: "4.7",
+    styleType: "Street Cool & Active Lifestyle",
+  },
+  {
+    id: "titan",
+    name: "Titan",
+    tagline: "A TATA Enterprise · Precision Heritage",
+    badge: "INDIA'S MOST TRUSTED",
+    badgeColor: "trusted",
+    category: "optics",
+    specialty: "Memory Metal, Flex Titanium & Boardroom Classics",
+    desc: "India's gold standard in optical comfort and reliability. Memory metals that bounce back from bends, flexible bridge engineering, and dermatologically safe materials.",
+    highlights: ["Bendable Memory Metal", "TATA Quality Tested", "Hypoallergenic Comfort"],
+    count: "54+ Frames in Store",
+    rating: "4.9",
+    styleType: "Ergonomic Comfort & Boardroom Elegance",
+  },
+  {
+    id: "mont-jacob",
+    name: "Mont Jacob",
+    tagline: "Handcrafted Heritage Eyewear",
+    badge: "BESPOKE ARTISAN",
+    badgeColor: "gold",
+    category: "minimal",
+    specialty: "Hand-Polished Mazzucchelli & Vintage Keyhole Panto",
+    desc: "Bespoke artisan tailoring for the true connoisseur. Small-batch hand-polished Mazzucchelli acetates, custom vintage rivets, and effortless European quiet luxury.",
+    highlights: ["Mazzucchelli 1849 Acetate", "Hand-Polished Barrel Hinges", "Vintage Keyhole Bridge"],
+    count: "22+ Frames in Store",
+    rating: "5.0",
+    styleType: "Bespoke Vintage & Quiet Luxury",
   },
 ];
 
+const FILTER_TABS = [
+  { id: "all", label: "All Brands (8)" },
+  { id: "luxury", label: "Luxury & Designer" },
+  { id: "minimal", label: "Architectural & Bespoke" },
+  { id: "optics", label: "Optics & Heritage" },
+  { id: "youth", label: "Youth & Active" },
+];
+
 export default function LensGuide() {
-  const [filterActive, setFilterActive] = useState(false);
+  const [activeTab, setActiveTab] = useState("all");
+  const [selectedBrand, setSelectedBrand] = useState(null);
+
+  const filteredBrands = useMemo(() => {
+    if (activeTab === "all") return BRANDS;
+    return BRANDS.filter((b) => b.category === activeTab);
+  }, [activeTab]);
 
   return (
-    <section className="lens-guide-section" id="lens-guide">
+    <section className="brands-section" id="brands">
+      {/* Target anchor for backwards-compatibility */}
+      <span id="lens-guide" className="anchor-shim" />
+
+      {/* Marquee ticker of brand names */}
+      <div className="brands-ticker-wrap" aria-hidden="true">
+        <div className="brands-ticker-track">
+          {[...BRANDS, ...BRANDS].map((b, idx) => (
+            <span key={idx} className="brands-ticker-item">
+              <strong>{b.name}</strong>
+              <span className="ticker-dot">✦</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
       <div className="wrap">
-        <div className="lens-header">
-          <div className="lens-header-copy">
-            <span className="eyebrow">OPTICAL EXCELLENCE</span>
-            <h2>
-              Precision Lens Science · <em>Clearer, Healthier Eyes</em>
-            </h2>
-            <p>
-              Every Olive frame is matched with certified medical-grade lenses,
-              custom-cut and precision-calibrated for flawless optical clarity.
-            </p>
+        {/* Section Header */}
+        <div className="brands-header">
+          <div className="brands-eyebrow-row">
+            <span className="brands-eyebrow-line" />
+            <span className="brands-eyebrow-text">AUTHORIZED RETAILER &amp; CURATED HOUSES</span>
+            <span className="brands-eyebrow-line" />
           </div>
 
-          {/* Interactive Screen Simulator Toggle */}
-          <div className="lens-interactive-box">
-            <div className="sim-head">
-              <span>INTERACTIVE SIMULATOR</span>
-              <button
-                className="sim-toggle-btn"
-                onClick={() => setFilterActive(!filterActive)}
-                aria-label="Toggle Blue Light Filter Simulation"
-              >
-                <span>{filterActive ? "Shield Active" : "Standard Lens"}</span>
-                {filterActive ? (
-                  <ToggleRight size={24} className="active-icon" />
-                ) : (
-                  <ToggleLeft size={24} />
-                )}
-              </button>
-            </div>
+          <h2 className="brands-main-title">
+            Our Brands · <em>World-Renowned Eyewear &amp; Optics</em>
+          </h2>
 
-            <div className={`sim-screen ${filterActive ? "shield-on" : "shield-off"}`}>
-              <div className="sim-code-preview">
-                <span className="sim-dot red" />
-                <span className="sim-dot yellow" />
-                <span className="sim-dot green" />
-                <div className="sim-text">
-                  <strong>
-                    {filterActive
-                      ? "✓ Blue light absorbed · Relaxed ciliary eye muscles"
-                      : "⚠ Harsh 450nm blue spike · Eye strain & dry fatigue"}
-                  </strong>
-                  <small>
-                    {filterActive
-                      ? "Warm, soothing high-contrast clarity"
-                      : "High glare & disruptive digital flicker"}
-                  </small>
-                </div>
-              </div>
+          <p className="brands-subtitle">
+            We partner directly with leading international optical fashion houses to bring you
+            100% authentic designer frames, official manufacturer warranties, and precision craftsmanship.
+          </p>
+
+          {/* Guarantee Badges Row */}
+          <div className="brands-assurance-row">
+            <div className="assurance-badge">
+              <ShieldCheck size={16} className="badge-ico" />
+              <span>100% Original Brand Guarantee</span>
             </div>
+            <div className="assurance-badge">
+              <Award size={16} className="badge-ico" />
+              <span>Official Manufacturer Warranty</span>
+            </div>
+            <div className="assurance-badge">
+              <Glasses size={16} className="badge-ico" />
+              <span>Free Custom In-Store Fitting</span>
+            </div>
+          </div>
+
+          {/* Interactive Filter Tabs */}
+          <div className="brands-filter-pills" role="tablist">
+            {FILTER_TABS.map((tab) => (
+              <button
+                key={tab.id}
+                type="button"
+                role="tab"
+                aria-selected={activeTab === tab.id}
+                className={`brand-pill-btn ${activeTab === tab.id ? "active" : ""}`}
+                onClick={() => setActiveTab(tab.id)}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* 4 Lens Feature Cards */}
-        <div className="lens-grid">
-          {LENSES.map((lens) => {
-            const Icon = lens.icon;
-            return (
-              <div key={lens.id} className="lens-card">
-                <div className="lens-top">
-                  <div className="lens-icon-circle">
-                    <Icon size={20} />
-                  </div>
-                  <span className="lens-badge">{lens.badge}</span>
-                </div>
-
-                <h3>{lens.title}</h3>
-                <h4 className="lens-sub">{lens.subtitle}</h4>
-                <p className="lens-desc">{lens.desc}</p>
-
-                <div className="lens-benefits-list">
-                  {lens.benefits.map((b, i) => (
-                    <div key={i} className="lens-benefit-item">
-                      <CheckCircle2 size={13} />
-                      <span>{b}</span>
-                    </div>
-                  ))}
-                </div>
+        {/* 8 Brands Grid */}
+        <div className="brands-grid">
+          {filteredBrands.map((brand) => (
+            <article
+              key={brand.id}
+              className={`brand-card ${selectedBrand === brand.id ? "card-highlight" : ""}`}
+              onMouseEnter={() => setSelectedBrand(brand.id)}
+              onMouseLeave={() => setSelectedBrand(null)}
+            >
+              {/* Card Top Row: Badge & Origin */}
+              <div className="brand-card-top">
+                <span className={`brand-badge ${brand.badgeColor}`}>
+                  {brand.badge}
+                </span>
+                <span className="brand-rating">
+                  <Star size={12} className="star-fill" />
+                  <span>{brand.rating}</span>
+                </span>
               </div>
-            );
-          })}
+
+              {/* Brand Typography Title */}
+              <div className="brand-title-wrap">
+                <h3 className={`brand-name brand-${brand.id}`}>
+                  {brand.name}
+                </h3>
+                <span className="brand-tagline">{brand.tagline}</span>
+              </div>
+
+              {/* Specialty Subtitle */}
+              <h4 className="brand-specialty">{brand.specialty}</h4>
+
+              {/* Description */}
+              <p className="brand-desc">{brand.desc}</p>
+
+              {/* Signature Feature Chips */}
+              <div className="brand-chips-row">
+                {brand.highlights.map((h, i) => (
+                  <span key={i} className="brand-chip">
+                    <Check size={11} className="chip-check" />
+                    <span>{h}</span>
+                  </span>
+                ))}
+              </div>
+
+              {/* Bottom Card Footer */}
+              <div className="brand-card-footer">
+                <span className="brand-stock-pill">{brand.count}</span>
+
+                <a
+                  href="#categories"
+                  className="brand-explore-btn"
+                  aria-label={`Explore ${brand.name} collection`}
+                >
+                  <span>Explore Frames</span>
+                  <ArrowRight size={14} className="arrow-btn" />
+                </a>
+              </div>
+
+              <div className="brand-card-ambient" />
+            </article>
+          ))}
+        </div>
+
+        {/* Bottom Consultation Box */}
+        <div className="brands-footer-banner">
+          <div className="banner-left">
+            <Sparkles size={22} className="banner-sparkle" />
+            <div>
+              <strong>Looking for a specific model from Ray-Ban, Titan or ProDesign?</strong>
+              <p>Our opticians can custom-order any global frame and calibrate your prescription lenses.</p>
+            </div>
+          </div>
+          <a href="#book-test" className="banner-cta-btn">
+            <span>Book In-Store Frame Try-On</span>
+            <ArrowRight size={15} />
+          </a>
         </div>
       </div>
     </section>

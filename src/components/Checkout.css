@@ -38,7 +38,7 @@
   overflow: auto;
   padding: 46px 46px 42px;
   border-radius: 10px;
-  background: #f9f4ec;
+  background: #f9f8f4;
   animation: coPop 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
@@ -69,7 +69,46 @@
 .co-delivery h2 em,
 .co-success h2 em {
   font-style: italic;
-  color: #c9a85c;
+  color: #536928;
+}
+
+.co-delivery-alert-box {
+  background: #fbfbf9;
+  border: 1.5px solid rgba(56, 76, 31, 0.25);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.co-del-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #dcfce7;
+  color: #14532d;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  align-self: flex-start;
+  box-shadow: 0 0 0 1px #86efac;
+}
+
+.co-del-timings {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  color: #4b5240;
+}
+
+.co-del-timings strong {
+  color: #2b3917;
+  font-weight: 700;
 }
 
 .co-field {
@@ -102,7 +141,7 @@
 
 .co-field input:focus,
 .co-field textarea:focus {
-  border-color: #c9a85c;
+  border-color: #536928;
   box-shadow: 0 0 0 3px rgba(201, 168, 92, 0.18);
 }
 
@@ -119,7 +158,7 @@
   padding: 20px;
   border: 1px solid #b8892e;
   border-radius: 50px;
-  background: linear-gradient(135deg, #cfa94f, #b8892e);
+  background: #536928;
   color: #1a1410;
   font-size: 13px;
   font-weight: 700;
@@ -145,7 +184,7 @@
   padding: 18px;
   overflow: hidden;
   border-radius: 18px;
-  background: linear-gradient(160deg, #dcc57c, #b79a43);
+  background: linear-gradient(160deg, #283413, #536928);
   animation: coPop 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
@@ -163,7 +202,7 @@
   align-items: center;
   gap: 12px;
   font-size: 18px;
-  color: #231b0c;
+  color: #ffffff;
 }
 
 .co-brand span {
@@ -241,8 +280,8 @@
   gap: 12px;
   padding: 14px 16px;
   border-radius: 12px;
-  background: rgba(26, 20, 16, 0.82);
-  color: #f1dca0;
+  background: rgba(36, 46, 18, 0.9);
+  color: #ffffff;
   animation: coFade 0.6s ease both;
 }
 
@@ -342,7 +381,7 @@
 }
 
 .co-methods button.active {
-  background: #efe7d2;
+  background: #edf3e4; color: #37461a;
   font-weight: 600;
 }
 
@@ -435,7 +474,7 @@
 }
 
 .co-input input:focus {
-  border-color: #b8892e;
+  border-color: #536928;
 }
 
 .co-row {
@@ -458,7 +497,7 @@
   padding: 17px;
   border: 0;
   border-radius: 10px;
-  background: #1a1410;
+  background: #536928;
   color: #fff;
   font-size: 15px;
   font-weight: 600;
@@ -467,7 +506,7 @@
 }
 
 .co-paybtn:hover:not(:disabled) {
-  background: #3a2d1f;
+  background: #445620;
   transform: translateY(-2px);
 }
 
@@ -577,7 +616,7 @@
   padding: 17px;
   border: 0;
   border-radius: 8px;
-  background: #130f08;
+  background: #536928;
   color: #fff;
   font-size: 16px;
   font-weight: 600;
@@ -586,7 +625,7 @@
 }
 
 .co-continue:hover {
-  background: #3a2d1f;
+  background: #445620;
 }
 
 /* ===== SUCCESS ===== */
@@ -597,7 +636,7 @@
   padding: 44px 40px;
   text-align: center;
   border-radius: 10px;
-  background: #f9f4ec;
+  background: #f9f8f4;
   animation: coPop 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
@@ -628,7 +667,7 @@
 .co-order {
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: #b8892e !important;
+  color: #536928 !important;
 }
 
 .co-success address {

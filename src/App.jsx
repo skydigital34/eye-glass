@@ -6,8 +6,18 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
-import { ShieldCheck, Sparkles, Truck, ArrowUpRight } from "lucide-react";
+import {
+  ShieldCheck,
+  Sparkles,
+  Truck,
+  ArrowUpRight,
+  Glasses,
+  Sun,
+  Droplets,
+  MessageCircle,
+} from "lucide-react";
 import About from "./components/About.jsx";
+import AboutSection from "./components/AboutSection.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import CategoryCard from "./components/CategoryCard.jsx";
@@ -17,7 +27,6 @@ import CartDrawer from "./components/CartDrawer.jsx";
 import Checkout from "./components/Checkout.jsx";
 import Newsletter from "./components/Newsletter.jsx";
 import Footer from "./components/Footer.jsx";
-import PromoBanner from "./components/PromoBanner.jsx";
 import FeaturedProducts from "./components/FeaturedProducts.jsx";
 import FaceShapeGuide from "./components/FaceShapeGuide.jsx";
 import LensGuide from "./components/LensGuide.jsx";
@@ -55,6 +64,7 @@ function Home({
   onWishlist,
   onAdd,
   onBuy,
+  onBookAppointment,
 }) {
   const navigate = useNavigate();
 
@@ -62,56 +72,113 @@ function Home({
     <main>
       <Hero scrollToProducts={scrollToCategories} />
 
-      <section className="trust">
-        <div>
-          <ShieldCheck /> Quality you can feel
-        </div>
-        <div>
-          <Sparkles /> Styles worth keeping
-        </div>
-        <div>
-          <Truck /> Easy, reliable delivery
-        </div>
-      </section>
-
-      {/* Special Offer Strip */}
-      <PromoBanner
-        showNotice={showNotice}
-        scrollToProducts={scrollToCategories}
-      />
-
-      {/* Handpicked Categories */}
+      {/* Handpicked Categories Section */}
       <section className="cats" id="categories">
-        <span className="cats-side">TIMELESS ELEGANCE</span>
+        {/* Decorative corner leaves & soft curve */}
+        <img
+          src="/cat_leaf_tl.png"
+          alt=""
+          className="cats-leaf-tl"
+          aria-hidden="true"
+        />
+        <img
+          src="/cat_curve_bl.png"
+          alt=""
+          className="cats-curve-bl"
+          aria-hidden="true"
+        />
+        <img
+          src="/cat_leaf_br.png"
+          alt=""
+          className="cats-leaf-br"
+          aria-hidden="true"
+        />
 
         <div className="wrap">
+          {/* Section Header matching mockup 1:1 */}
           <div className="cats-head">
-            <h2>
-              Shop Handpicked <em>Eyeglasses &amp; Sunglasses</em>
+            <div className="cats-eyebrow-container">
+              <span className="cats-eyebrow-line" />
+              <span className="cats-eyebrow-text">
+                PREMIUM EYE CARE COLLECTION
+              </span>
+              <span className="cats-eyebrow-line" />
+            </div>
+
+            <h2 className="cats-title">
+              Eyeglasses, Sunglasses <span className="cats-amp">&amp;</span> Contact Lenses
             </h2>
-            <p>Timeless frames. Thoughtfully chosen for you.</p>
+
+            <p className="cats-subtitle">
+              Style your vision. See a better tomorrow.
+            </p>
           </div>
 
+          {/* 3 Interactive Cards matching mockup 1:1 */}
           <div className="cats-grid">
-            <CategoryCard
-              title="Eyeglasses"
-              badge="EVERYDAY OPTICALS"
-              count="36+ DESIGNS"
-              text="Lightweight frames and crystal-clear comfort, made to be worn all day."
-              cta="EXPLORE EYEGLASSES"
-              image="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=1200&q=85"
-              onClick={() => navigate("/eyeglasses")}
-            />
+            {/* Card 1: Eyeglasses */}
+            <a
+              href="#eyeglasses"
+              className="cat-showcase-card"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/eyeglasses");
+              }}
+              aria-label="Explore Eyeglasses collection"
+            >
+              <img
+                src="/cat_card_eyeglasses.png"
+                alt="Eyeglasses - Everyday Essential"
+                className="cat-showcase-img"
+              />
+              <span className="cat-card-hover-border" />
+            </a>
 
-            <CategoryCard
-              title="Sunglasses"
-              badge="SUN-READY STYLES"
-              count="36+ DESIGNS"
-              text="Bold shapes and tinted lenses that finish every look under the sun."
-              cta="EXPLORE SUNGLASSES"
-              image="https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=1200&q=85"
-              onClick={() => navigate("/sunglasses")}
-            />
+            {/* Card 2: Sunglasses */}
+            <a
+              href="#sunglasses"
+              className="cat-showcase-card"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/sunglasses");
+              }}
+              aria-label="Explore Sunglasses collection"
+            >
+              <img
+                src="/cat_card_sunglasses.png"
+                alt="Sunglasses - Trending Style"
+                className="cat-showcase-img"
+              />
+              <span className="cat-card-hover-border" />
+            </a>
+
+            {/* Card 3: Contact Lenses */}
+            <a
+              href="#contact-lenses"
+              className="cat-showcase-card"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/contact-lenses");
+              }}
+              aria-label="Explore Contact Lenses collection"
+            >
+              <img
+                src="/cat_card_contactlenses.png"
+                alt="Contact Lenses - Clearer Vision"
+                className="cat-showcase-img"
+              />
+              <span className="cat-card-hover-border" />
+            </a>
+          </div>
+
+          {/* Bottom Slider Indicator Dots */}
+          <div className="cats-slider-dots" aria-hidden="true">
+            <span className="dots-line" />
+            <span className="dot active" />
+            <span className="dot" />
+            <span className="dot" />
+            <span className="dot" />
+            <span className="dots-line" />
           </div>
         </div>
       </section>
@@ -130,38 +197,17 @@ function Home({
       {/* Precision Lens Science & Health */}
       <LensGuide />
 
-      {/* 3-Step Ordering Guide */}
-      <HowItWorks />
+      {/* Home Eye Test & Eyeglasses Services (Triggers Popup Modal) */}
+      <HowItWorks onBookAppointment={onBookAppointment} />
 
-      {/* Professional In-Store Eye Test & Home Try-On Booking */}
-      <BookEyeTest showNotice={showNotice} />
+      {/* Anchor shim for backwards-compatibility */}
+      <span id="book-test" className="anchor-shim" />
 
-      {/* Brand Story */}
-      <section className="story" id="story">
-        <img
-          src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=85"
-          alt="Portrait in natural light"
-        />
-        <div>
-          <p className="eyebrow">A CLEARER KIND OF STYLE</p>
-          <h2>
-            Less fuss.
-            <br />
-            <em>More you.</em>
-          </h2>
-          <p>
-            We believe the right pair of glasses should feel like it was
-            always meant to be yours. Thoughtful design, everyday comfort,
-            and timeless style — that’s the Olive way.
-          </p>
-          <a href="#categories">
-            Discover our approach <ArrowUpRight size={16} />
-          </a>
-        </div>
-      </section>
+      {/* About Us Home Showcase Section */}
+      <AboutSection />
 
       {/* Verified Reviews & Social Proof */}
-      <Testimonials />
+      <Testimonials showNotice={showNotice} />
 
       {/* Frequently Asked Questions */}
       <FaqSection />
@@ -184,8 +230,28 @@ export default function App() {
   const [wishlist, setWishlist] = useState([]);
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
+  const [bookModalOpen, setBookModalOpen] = useState(false);
+  const [bookModalService, setBookModalService] = useState("home"); // "home" | "clinic"
   const [notice, setNotice] = useState("");
   const [checkout, setCheckout] = useState(null); // { items, fromCart }
+
+  const openBookModal = (service = "home") => {
+    setBookModalService(service);
+    setBookModalOpen(true);
+  };
+
+  // Intercept any clicks on #book-test across the site to trigger the modal
+  useEffect(() => {
+    const handleGlobalBookClick = (e) => {
+      const link = e.target.closest('a[href$="#book-test"], a[href*="#book-test"]');
+      if (link) {
+        e.preventDefault();
+        openBookModal("clinic");
+      }
+    };
+    document.addEventListener("click", handleGlobalBookClick);
+    return () => document.removeEventListener("click", handleGlobalBookClick);
+  }, []);
 
   const showNotice = (m) => {
     setNotice(m);
@@ -291,6 +357,7 @@ export default function App() {
             <Home
               scrollToCategories={scrollToCategories}
               showNotice={showNotice}
+              onBookAppointment={openBookModal}
               {...pageProps}
             />
           }
@@ -313,6 +380,17 @@ export default function App() {
         />
 
         <Route
+          path="/contact-lenses"
+          element={
+            <CategoryPage
+              key="contact-lenses"
+              type="contact-lenses"
+              {...pageProps}
+            />
+          }
+        />
+
+        <Route
           path="/product/:id"
           element={<ProductDetail {...pageProps} showNotice={showNotice} />}
         />
@@ -322,11 +400,31 @@ export default function App() {
 
       <Footer />
 
+      {/* Floating WhatsApp Quick Action Button */}
+      <a
+        href="https://wa.me/918838289852?text=Hi%20Olive%20Eye%20Care,%20I%20would%20like%20to%20know%20more%20about%20your%20services"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-wa-btn"
+        aria-label="Chat with Olive Eye Care on WhatsApp"
+      >
+        <MessageCircle size={26} />
+        <span className="wa-tooltip">Chat on WhatsApp (88382 89852)</span>
+      </a>
+
       {/* Mobile Native App Bottom Navigation Bar */}
       <MobileBottomNav
         cartCount={count}
         wishlistCount={wishlist.length}
         onCart={() => setCartOpen(true)}
+        showNotice={showNotice}
+      />
+
+      {/* Appointment & Home Try-On Booking Popup Modal */}
+      <BookEyeTest
+        open={bookModalOpen}
+        initialService={bookModalService}
+        onClose={() => setBookModalOpen(false)}
         showNotice={showNotice}
       />
 

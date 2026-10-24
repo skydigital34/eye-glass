@@ -1,273 +1,274 @@
-/* ===== OLIVE HERO ===== */
+/* ===== OLIVE HERO SECTION ===== */
 .ohero {
   position: relative;
-  min-height: max(640px, calc(100svh - 90px));
+  width: 100%;
+  aspect-ratio: 1953 / 805;
+  min-height: 410px;
+  max-height: 720px;
   display: flex;
   align-items: center;
   overflow: hidden;
-  isolation: isolate;
-  color: #fff;
-  background: #141d16;
+  background: #fbf9f1;
+  color: #242d14;
 }
 
-/* Background */
+/* Background hero banner image - completely static with zero shake or transform */
 .ohero-bg {
   position: absolute;
-  inset: -4%;
-  z-index: -4;
-  will-change: transform;
-}
-
-.ohero-slide {
-  position: absolute;
   inset: 0;
-  opacity: 0;
-  transition: opacity 1.4s ease;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  transform: none !important;
 }
 
-.ohero-slide.active {
-  opacity: 1;
-}
-
-.ohero-slide img {
+.ohero-bg-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 40%;
-  transform: scale(1.18);
+  object-position: right center;
+  display: block;
+  transform: none !important;
+  animation: none !important;
 }
 
-.ohero-slide.active img {
-  animation: oheroZoom 10s ease-out forwards;
-}
-
-@keyframes oheroZoom {
-  from {
-    transform: scale(1.18);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
-.ohero-shade {
-  position: absolute;
-  inset: 0;
-  z-index: -3;
-  background:
-    linear-gradient(90deg, rgba(14, 22, 16, 0.88) 0%, rgba(14, 22, 16, 0.55) 45%, rgba(14, 22, 16, 0.12) 100%),
-    linear-gradient(0deg, rgba(14, 22, 16, 0.85) 0%, transparent 38%);
-}
-
-.ohero-glow {
-  position: absolute;
-  top: -25%;
-  left: 35%;
-  width: 50%;
-  height: 130%;
-  z-index: -2;
-  pointer-events: none;
-  filter: blur(40px);
-  background: radial-gradient(
-    ellipse,
-    rgba(218, 190, 112, 0.2) 0%,
-    rgba(218, 190, 112, 0) 70%
-  );
-  animation: oheroGlow 7s ease-in-out infinite alternate;
-}
-
-@keyframes oheroGlow {
-  from {
-    transform: translate(-30px, 10px);
-  }
-  to {
-    transform: translate(50px, -20px);
-  }
-}
-
-/* Particles */
-.ohero-particles {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.ohero-particles span {
-  position: absolute;
-  bottom: -10px;
-  border-radius: 50%;
-  background: #e4c987;
-  opacity: 0;
-  box-shadow: 0 0 10px 2px rgba(228, 201, 135, 0.5);
-  animation-name: oheroRise;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-
-@keyframes oheroRise {
-  0% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  15% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(-110vh);
-    opacity: 0;
-  }
-}
-
-/* Layout */
-.ohero-inner {
-  width: min(1180px, 88%);
+/* Main Container Wrap */
+.ohero-wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1600px;
+  height: 100%;
   margin: 0 auto;
-  padding: 70px 0 140px;
-  display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  align-items: center;
-  gap: 40px;
-}
-
-/* Text */
-.ohero-eyebrow {
+  box-sizing: border-box;
+  padding: clamp(16px, 2.5vw, 40px) clamp(20px, 4.5vw, 65px);
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin: 0 0 22px;
-  font-size: 11px;
+}
+
+/* Left Content Area (fits inside the left soft cream/sage curved background) */
+.ohero-content {
+  max-width: clamp(380px, 40vw, 490px);
+  padding-left: clamp(12px, 1.8vw, 30px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: oheroFadeIn 0.8s ease both;
+}
+
+@keyframes oheroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Eyebrow: PREMIUM EYEWEAR & EYE CARE — */
+.ohero-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: clamp(10px, 1.2vw, 15px);
+}
+
+.ohero-eyebrow-text {
+  font-size: clamp(9.5px, 0.9vw, 11px);
   font-weight: 700;
-  letter-spacing: 0.24em;
-  color: #e3d0a0;
+  letter-spacing: 0.2em;
+  color: #3e5124;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-.ohero-eyebrow i {
-  display: block;
-  width: 42px;
-  height: 1px;
-  background: #e3d0a0;
+.ohero-eyebrow-line {
+  width: clamp(24px, 2.6vw, 36px);
+  height: 1.5px;
+  background: #3e5124;
+  display: inline-block;
+  opacity: 0.9;
 }
 
-.ohero-title {
+/* Main Heading: Clear Vision, A Brighter You */
+.ohero-main-title {
   margin: 0;
-  font-family: "Playfair Display", serif;
-  font-weight: 500;
-  font-size: clamp(46px, 7vw, 94px);
-  line-height: 1.04;
-  letter-spacing: -0.035em;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 3.85vw, 54px);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: #233516;
+  display: flex;
+  flex-direction: column;
 }
 
-.ohero-mask {
-  display: block;
-  overflow: hidden;
-  padding-bottom: 0.1em;
-}
-
-.ohero-reveal {
+.title-line {
   display: block;
 }
 
-.ohero-title em {
-  font-style: italic;
-  background: linear-gradient(90deg, #f0dca6, #b99a5b);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+.title-swoosh-wrap {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
 }
 
-.ohero-text {
-  max-width: 440px;
-  margin: 24px 0 0;
-  font-size: 15px;
-  line-height: 1.85;
-  color: rgba(255, 255, 255, 0.82);
+.hero-swoosh-svg {
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 16px;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 1px rgba(50, 70, 25, 0.18));
 }
 
-/* Buttons */
-.ohero-actions {
+/* Subtitle description */
+.ohero-subtext {
+  margin: clamp(12px, 1.3vw, 18px) 0 clamp(18px, 2vw, 28px);
+  font-size: clamp(12px, 1.1vw, 14.5px);
+  line-height: 1.55;
+  color: #4e5e3a;
+  font-weight: 400;
+}
+
+/* CTA Buttons Row */
+.ohero-cta-row {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 36px;
+  gap: clamp(10px, 1.2vw, 15px);
+  margin-bottom: clamp(20px, 2.5vw, 34px);
 }
 
 .ohero-btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  padding: 17px 28px;
+  gap: 8px;
+  padding: clamp(9px, 0.95vw, 12px) clamp(18px, 1.8vw, 24px);
   border: 0;
   border-radius: 50px;
-  background: linear-gradient(135deg, #ecd9a2, #b99a5b);
-  color: #1f2a21;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  background: #384c1f;
+  color: #ffffff;
+  font-size: clamp(12px, 0.95vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.02em;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 16px rgba(45, 60, 24, 0.24);
+  text-decoration: none;
+  transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
 }
 
 .ohero-btn-primary:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 34px rgba(185, 154, 91, 0.4);
+  transform: translateY(-2px);
+  background: #2b3b18;
+  box-shadow: 0 9px 22px rgba(45, 60, 24, 0.35);
 }
 
 .ohero-btn-primary svg {
-  transition: transform 0.3s ease;
+  transition: transform 0.22s ease;
 }
 
-.ohero-btn-primary:hover svg {
-  transform: translate(3px, -3px);
+.ohero-btn-primary:hover svg:last-child {
+  transform: translateX(3px);
 }
 
-.ohero-btn-ghost {
-  padding: 16px 26px;
-  border: 1px solid rgba(255, 255, 255, 0.45);
+.ohero-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: clamp(8px, 0.9vw, 11px) clamp(16px, 1.6vw, 22px);
+  border: 1.5px solid #384c1f;
   border-radius: 50px;
-  font-size: 12px;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(4px);
+  color: #2c3d18;
+  font-size: clamp(12px, 0.95vw, 13px);
   font-weight: 600;
-  letter-spacing: 0.08em;
-  color: #fff;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: transform 0.22s ease, background 0.22s ease, color 0.22s ease;
 }
 
-.ohero-btn-ghost:hover {
-  background: #fff;
-  color: #1f2a21;
-  transform: translateY(-4px);
+.ohero-btn-outline:hover {
+  transform: translateY(-2px);
+  background: #384c1f;
+  color: #ffffff;
+  box-shadow: 0 5px 16px rgba(45, 60, 24, 0.2);
 }
 
-/* Glass card */
-.ohero-card {
-  justify-self: end;
-  will-change: transform;
+/* Trust Features Bar (4 horizontal items with dividers) */
+.ohero-features-bar {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.1vw, 15px);
+  padding-top: 2px;
 }
 
-.ohero-card-float {
-  width: 270px;
-  padding: 24px;
+.ohero-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feature-icon {
+  color: #384c1f;
+  flex-shrink: 0;
+}
+
+.feature-text {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-  animation:
-    oheroCardIn 0.9s 0.5s both cubic-bezier(0.2, 0.8, 0.2, 1),
-    oheroFloat 5s 1.4s ease-in-out infinite;
+  font-size: clamp(10px, 0.9vw, 11px);
+  line-height: 1.22;
 }
 
-@keyframes oheroCardIn {
+.feature-text strong {
+  font-weight: 700;
+  color: #233112;
+  white-space: nowrap;
+}
+
+.feature-text span {
+  color: #4e5e3a;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.feature-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(56, 76, 31, 0.26);
+  flex-shrink: 0;
+}
+
+/* Bottom-Right Floating Eye Testing Badge */
+.ohero-testing-badge {
+  position: absolute;
+  right: clamp(18px, 2.8vw, 42px);
+  bottom: clamp(16px, 2.4vw, 34px);
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 14px 9px 12px;
+  border-radius: 50px;
+  background: #34461b;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(22, 32, 10, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  animation: badgePop 0.9s 0.3s both cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes badgePop {
   from {
     opacity: 0;
-    transform: translateY(40px) scale(0.95);
+    transform: translateY(18px) scale(0.96);
   }
   to {
     opacity: 1;
@@ -275,250 +276,135 @@
   }
 }
 
-@keyframes oheroFloat {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-14px);
-  }
+.ohero-testing-badge:hover {
+  transform: translateY(-2px) scale(1.02);
+  background: #2a3a15;
+  box-shadow: 0 16px 36px rgba(22, 32, 10, 0.5);
 }
 
-.ohero-card-float small {
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  color: #e3d0a0;
-}
-
-.ohero-card-float strong {
-  margin-top: 6px;
-  font-family: "Playfair Display", serif;
-  font-size: 28px;
-  font-weight: 500;
-}
-
-.ohero-card-float span {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.ohero-card-row {
-  margin-top: 18px;
-  padding-top: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.ohero-card-row b {
-  font-size: 20px;
-}
-
-.ohero-card-row button {
-  width: 40px;
-  height: 40px;
+.testing-badge-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
   display: grid;
   place-items: center;
-  border: 0;
-  border-radius: 50%;
-  background: #e4c987;
-  color: #1f2a21;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+  color: #ffffff;
+  flex-shrink: 0;
 }
 
-.ohero-card-row button:hover {
-  transform: rotate(45deg) scale(1.08);
-}
-
-/* Bottom bar */
-.ohero-bottom {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0 6% 28px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.ohero-controls {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-}
-
-.ohero-count {
-  font-family: "Playfair Display", serif;
-  font-size: 26px;
-}
-
-.ohero-count em {
-  font-family: "DM Sans", sans-serif;
-  font-style: normal;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.ohero-dots {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.ohero-dot {
-  position: relative;
-  width: 24px;
-  height: 3px;
-  padding: 0;
-  border: 0;
-  border-radius: 3px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.3);
-  cursor: pointer;
-  transition: width 0.4s ease;
-}
-
-.ohero-dot.active {
-  width: 64px;
-}
-
-.ohero-dot-fill {
-  position: absolute;
-  inset: 0;
-  background: #e4c987;
-  transform-origin: left;
-  animation-name: oheroProgress;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-}
-
-.ohero.paused .ohero-dot-fill {
-  animation-play-state: paused;
-}
-
-@keyframes oheroProgress {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
-}
-
-.ohero-stats {
-  display: flex;
-  gap: 38px;
-}
-
-.ohero-stats div {
+.testing-badge-info {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  text-align: left;
 }
 
-.ohero-stats b {
-  font-family: "Playfair Display", serif;
-  font-size: 22px;
-  font-weight: 500;
-  color: #e4c987;
+.testing-badge-info strong {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.22;
+  white-space: nowrap;
 }
 
-.ohero-stats span {
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.7);
+.testing-badge-info small {
+  font-size: 9.5px;
+  color: #d4e3be;
+  letter-spacing: 0.02em;
+  margin-top: 2px;
+  white-space: nowrap;
 }
 
-.ohero-scroll {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  border: 0;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  cursor: pointer;
+.testing-badge-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
 }
 
-.ohero-scroll svg {
-  animation: oheroBounce 1.6s ease-in-out infinite;
+.ohero-testing-badge:hover .testing-badge-btn {
+  transform: translateX(2px);
 }
 
-@keyframes oheroBounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(5px);
-  }
-}
-
-/* Tablet */
-@media (max-width: 950px) {
-  .ohero-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .ohero-card {
-    display: none;
-  }
-
-  .ohero-stats {
-    display: none;
-  }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
+/* Tablet & Mobile Responsiveness */
+@media (max-width: 991px) {
   .ohero {
-    min-height: 640px;
-    align-items: flex-end;
+    aspect-ratio: auto;
+    min-height: auto;
+    padding: 35px 0 30px;
+    background: #edf3e7;
   }
 
-  .ohero-shade {
-    background: linear-gradient(
-      0deg,
-      rgba(14, 22, 16, 0.92) 25%,
-      rgba(14, 22, 16, 0.35) 100%
-    );
+  .ohero-bg {
+    opacity: 0.25;
   }
 
-  .ohero-inner {
-    padding: 60px 0 110px;
+  .ohero-bg-img {
+    object-position: 75% center;
   }
 
-  .ohero-text {
-    font-size: 14px;
+  .ohero-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 5%;
+  }
+
+  .ohero-content {
+    max-width: 100%;
+    padding-left: 0;
+  }
+
+  .ohero-testing-badge {
+    position: static;
+    margin-top: 26px;
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .ohero {
+    padding: 25px 0 20px;
+  }
+
+  .ohero-main-title {
+    font-size: 30px;
+  }
+
+  .ohero-subtext {
+    font-size: 12.5px;
+    margin-bottom: 20px;
+  }
+
+  .ohero-cta-row {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 22px;
   }
 
   .ohero-btn-primary,
-  .ohero-btn-ghost {
-    padding: 14px 20px;
-    font-size: 11px;
+  .ohero-btn-outline {
+    padding: 10px 18px;
+    font-size: 12px;
   }
 
-  .ohero-scroll {
+  .ohero-features-bar {
+    flex-wrap: wrap;
+    gap: 12px 16px;
+  }
+
+  .feature-divider {
     display: none;
   }
 
-  .ohero-bottom {
-    padding-bottom: 22px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ohero-slide img,
-  .ohero-glow,
-  .ohero-particles span,
-  .ohero-card-float,
-  .ohero-scroll svg {
-    animation: none !important;
+  .ohero-testing-badge {
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin-top: 16px;
   }
 }
