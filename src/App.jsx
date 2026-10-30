@@ -36,6 +36,7 @@ import Testimonials from "./components/Testimonials.jsx";
 import FaqSection from "./components/FaqSection.jsx";
 import InstagramShowcase from "./components/InstagramShowcase.jsx";
 import MobileBottomNav from "./components/MobileBottomNav.jsx";
+import Preloader from "./components/Preloader.jsx";
 import { products as allProducts } from "./data/products.js";
 
 function ScrollToHash() {
@@ -338,6 +339,9 @@ export default function App() {
 
   return (
     <div>
+      {/* Luxury Brand Optical Preloading Screen */}
+      <Preloader />
+
       <ScrollToHash />
 
       <Navbar

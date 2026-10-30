@@ -15,11 +15,35 @@ export default function BrandLogo({
   size = 1,
   className = "",
   showTagline = true,
+  useImage = true,
 }) {
   const isLight = theme === "light";
   const primaryColor = isLight ? "#ffffff" : "#2f3f1a";
   const secondaryColor = isLight ? "#d6e8aa" : "#2f3f1a";
   const taglineColor = isLight ? "#e2ebd0" : "#4a5d30";
+
+  // When useImage is true, use the official logo image from public/image copy 2.png
+  if (useImage && variant !== "svg" && variant !== "icon") {
+    return (
+      <img
+        src="/image copy 2.png"
+        alt="Olive Eye Care - The Branch Of New Style"
+        className={`olive-brand-logo-img theme-${theme} ${className}`}
+        style={{
+          height: `${58 * size}px`,
+          width: "auto",
+          maxWidth: "100%",
+          objectFit: "contain",
+          display: "block",
+          filter:
+            theme === "dark"
+              ? "brightness(0) saturate(100%) invert(16%) sepia(25%) saturate(1050%) hue-rotate(43deg) brightness(100%) contrast(90%)"
+              : "none",
+          transition: "transform 0.25s ease",
+        }}
+      />
+    );
+  }
 
   // Spectacles SVG with Olive Branch & Olives
   const SpectaclesIcon = ({ width = 56, height = 28 }) => (

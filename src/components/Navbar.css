@@ -1,7 +1,7 @@
 /* ===== PAGE FIXES FOR STICKY NAVBAR ===== */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 110px;
 }
 
 .backdrop {
@@ -134,8 +134,8 @@ html {
 /* ===== OLIVE CLEAN LUXURY NAVBAR ===== */
 .olive-luxury-header {
   width: 100%;
-  min-height: 64px;
-  padding: 10px 4%;
+  min-height: 70px;
+  padding: 8px 4%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -155,6 +155,22 @@ html {
   gap: 9px;
   text-decoration: none;
   flex-shrink: 0;
+}
+
+.olive-navbar-logo-img {
+  height: 70px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  display: block;
+  /* Brand dark olive green (#2b3917) tint for crisp luxury presentation on light navbar */
+  filter: brightness(0) saturate(100%) invert(16%) sepia(25%) saturate(1050%) hue-rotate(43deg) brightness(100%) contrast(90%);
+  transform: translateY(-1px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
+}
+
+.olive-navbar-logo-img:hover {
+  transform: translateY(-1px) scale(1.04);
 }
 
 /* Desktop Navigation */
@@ -359,6 +375,11 @@ html {
     padding-inline: 3%;
   }
 
+  .olive-navbar-logo-img {
+    height: 60px;
+    max-width: 190px;
+  }
+
   .olive-luxury-nav {
     gap: 16px;
   }
@@ -371,8 +392,8 @@ html {
 /* Mobile */
 @media (max-width: 768px) {
   .olive-luxury-header {
-    min-height: 58px;
-    height: 58px;
+    min-height: 62px;
+    height: 62px;
     padding: 0 16px;
     background: #ffffff;
     border-bottom: 1px solid #e8e5dc;
@@ -394,6 +415,11 @@ html {
   .olive-luxury-brand {
     margin: 0 auto;
     transform: translateX(-4px);
+  }
+
+  .olive-navbar-logo-img {
+    height: 50px;
+    max-width: 160px;
   }
 
   .olive-luxury-nav {

@@ -89,9 +89,13 @@ export default function Navbar({
           <Menu size={24} />
         </button>
 
-        {/* Brand Logo - Dark theme on crisp white header */}
+        {/* Brand Logo - Official Store Logo Image */}
         <Link className="olive-luxury-brand" to="/" aria-label="Olive Eye Care Home">
-          <BrandLogo theme="dark" size={1.05} />
+          <img
+            src="/image copy 2.png"
+            alt="Olive Eye Care - The Branch Of New Style"
+            className="olive-navbar-logo-img"
+          />
         </Link>
 
         {/* Desktop Navigation Links matching Mockup */}
